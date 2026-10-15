@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成效报告 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.report{padding:88px 40px 120px;background:var(--paper)}
+.r-card{border:1px solid var(--line);background:var(--white);padding:34px;margin-top:28px}
+.r-card h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:19px;color:var(--ink);margin:0 0 6px}
+.r-card .r-sub{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink-3);margin:0 0 24px}
+.r-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.r-student b{font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:var(--ink);display:block;margin:2px 0}
+.r-student span{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--ink-3)}
+.r-stats{display:flex;gap:32px;text-align:right}
+.r-stats div b{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--indigo);display:block}
+.r-stats div span{font-family:'Noto Serif SC',serif;font-size:11px;color:var(--ink-3)}
+.btn-print{
+  font-family:'Noto Serif SC',serif;font-size:13px;letter-spacing:0.08em;
+  background:none;border:1px solid var(--ink);color:var(--ink);padding:10px 24px;cursor:pointer;
+}
+.btn-print:hover{background:var(--ink);color:var(--white)}
+.m-row{display:grid;grid-template-columns:150px 1fr 52px;align-items:center;gap:16px;margin-bottom:16px}
+.m-row .m-name{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink)}
+.m-row .m-name i{font-family:'Playfair Display',serif;font-style:italic;font-size:11px;color:var(--ink-3);display:block}
+.m-bar{height:8px;background:var(--paper);border:1px solid var(--line);position:relative}
+.m-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--indigo)}
+.m-row .m-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--ink);text-align:right}
+.chart{display:flex;align-items:flex-end;gap:14px;height:150px;padding-top:10px}
+.chart .c{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.chart .c i{width:70%;max-width:44px;background:var(--indigo);opacity:.85}
+.chart .c.low i{background:var(--cinnabar)}
+.chart .c b{font-family:'Playfair Display',serif;font-size:11px;font-weight:400;color:var(--ink-3)}
+.weak{width:100%;border-collapse:collapse;font-family:'Noto Serif SC',serif;font-size:13px}
+.weak th{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:12px;color:var(--ink-3);text-align:left;padding:0 10px 10px;border-bottom:1px solid var(--line)}
+.weak td{padding:11px 10px;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.weak td:first-child{color:var(--ink);font-weight:500}
+.weak .n{font-family:'Playfair Display',serif;font-weight:600;color:var(--cinnabar)}
+.advice{margin:0;padding-left:0;list-style:none}
+.advice li{
+  display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line);
+  font-family:'Noto Serif SC',serif;font-size:13.5px;color:var(--ink-2);line-height:1.8;
+}
+.advice li:last-child{border-bottom:none}
+.advice .fa-solid{color:var(--cinnabar);margin-top:4px}
+.print-note{font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink-3);text-align:center;margin-top:26px}
+@media (max-width:768px){
+  .report{padding:56px 20px 80px}
+  .r-card{padding:24px 18px}
+  .r-stats{gap:18px}
+  .m-row{grid-template-columns:96px 1fr 44px;gap:10px}
+}
+@media print{
+  .topbar,.footer,.btn-print,.print-note{display:none !important}
+  .report{padding:0;background:#fff}
+  .r-card{border:none;padding:10px 0;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="report">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="hd.eyebrow">Progress Report</div>
+      <h1 class="section-title" data-i18n="hd.title">成效报告</h1>
+      <p class="section-cn" data-i18n="hd.sub">掌握度、学习轨迹、待强化词与自动建议 —— 一页可打印的学情单，面向学校与家长交付。</p>
+
+      <div class="r-card">
+        <div class="r-head">
+          <div class="r-student">
+            <span data-i18n="st.label">学情单 · 学习者</span>
+            <b>Rita</b>
+            <span data-i18n="st.meta">贵州志 · 第 21 赛季 · 更新于 2026.10.15</span>
+          </div>
+          <div class="r-stats">
+            <div><b>320</b><span data-i18n="st.s1">积分</span></div>
+            <div><b>12/40</b><span data-i18n="st.s2">已解锁</span></div>
+            <div><b>12</b><span data-i18n="st.s3">已集章</span></div>
+            <div><b>3</b><span data-i18n="st.s4">连胜</span></div>
+          </div>
+          <button class="btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> <span data-i18n="st.print">打印 / 导出 PDF</span></button>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <h3 data-i18n="m.t">章节掌握度</h3>
+        <p class="r-sub" data-i18n="m.sub">Mastery by chapter · 由闯关得分与复习正确率加权</p>
+        <div class="m-row"><div class="m-name">I 苗乡烟火<i>Smoke &amp; Rice</i></div><div class="m-bar"><i style="width:82%"></i></div><div class="m-val">82</div></div>
+        <div class="m-row"><div class="m-name">II 侗歌侗寨<i>Song of the Dong</i></div><div class="m-bar"><i style="width:64%"></i></div><div class="m-val">64</div></div>
+        <div class="m-row"><div class="m-name">III 山水贵州<i>Mountains &amp; Waters</i></div><div class="m-bar"><i style="width:41%"></i></div><div class="m-val">41</div></div>
+        <div class="m-row"><div class="m-name">IV 工坊手艺<i>Workshop</i></div><div class="m-bar"><i style="width:28%"></i></div><div class="m-val">28</div></div>
+      </div>
+
+      <div class="r-card">
+        <h3 data-i18n="w.t">八周学习轨迹</h3>
+        <p class="r-sub" data-i18n="w.sub">Weekly practice · 每周完成的闯关数（红柱 = 低于目标的周）</p>
+        <div class="chart">
+          <div class="c"><b>3</b><i style="height:30%"></i><b>W1</b></div>
+          <div class="c"><b>5</b><i style="height:50%"></i><b>W2</b></div>
+          <div class="c"><b>4</b><i style="height:40%"></i><b>W3</b></div>
+          <div class="c"><b>7</b><i style="height:70%"></i><b>W4</b></div>
+          <div class="c low"><b>2</b><i style="height:20%"></i><b>W5</b></div>
+          <div class="c"><b>6</b><i style="height:60%"></i><b>W6</b></div>
+          <div class="c"><b>8</b><i style="height:80%"></i><b>W7</b></div>
+          <div class="c"><b>9</b><i style="height:90%"></i><b>W8</b></div>
+        </div>
+      </div>
+
+      <div class="r-card">
+        <h3 data-i18n="k.t">待强化词</h3>
+        <p class="r-sub" data-i18n="k.sub">Words to reinforce · 近两周答错 2 次以上的词，自动进入复习队列</p>
+        <table class="weak">
+          <thead><tr><th data-i18n="k.h1">Word 词汇</th><th data-i18n="k.h2">IPA 音标</th><th data-i18n="k.h3">Meaning 释义</th><th data-i18n="k.h4">Missed</th><th data-i18n="k.h5">Last tried</th></tr></thead>
+          <tbody>
+            <tr><td>batik</td><td>/bəˈtiːk/</td><td data-i18n="k.w1">蜡染</td><td class="n">×4</td><td>10.14</td></tr>
+            <tr><td>embroidery</td><td>/ɪmˈbrɔɪdəri/</td><td data-i18n="k.w2">刺绣</td><td class="n">×3</td><td>10.13</td></tr>
+            <tr><td>drum tower</td><td>/drʌm ˈtaʊə(r)/</td><td data-i18n="k.w3">鼓楼</td><td class="n">×3</td><td>10.12</td></tr>
+            <tr><td>indigo</td><td>/ˈɪndɪɡəʊ/</td><td data-i18n="k.w4">靛蓝</td><td class="n">×2</td><td>10.11</td></tr>
+            <tr><td>terraced fields</td><td>/ˈterəst fiːldz/</td><td data-i18n="k.w5">梯田</td><td class="n">×2</td><td>10.10</td></tr>
+            <tr><td>silversmith</td><td>/ˈsɪlvəsmɪθ/</td><td data-i18n="k.w6">银匠</td><td class="n">×2</td><td>10.09</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="r-card">
+        <h3 data-i18n="a.t">自动建议</h3>
+        <p class="r-sub" data-i18n="a.sub">Auto suggestions · 根据近两季数据生成</p>
+        <ul class="advice">
+          <li><i class="fa-solid fa-lightbulb"></i><span data-i18n="a.a1">第 III 章正确率连续两周低于 60%，建议把「山水贵州」的 6 个景区词卡加入每日晨读。</span></li>
+          <li><i class="fa-solid fa-lightbulb"></i><span data-i18n="a.a2">W5 因缺勤掉出连胜，本季已恢复 3 天连胜 —— 保持到 Day 7 可再拿 +50。</span></li>
+          <li><i class="fa-solid fa-lightbulb"></i><span data-i18n="a.a3">「蜡染 / batik」的拼写错误集中在双写 t，推荐完成一次 Batik Workshop 主题闯关做情景巩固。</span></li>
+        </ul>
+      </div>
+
+      <p class="print-note" data-i18n="ft.note">本报告由学习数据自动生成 · 当前为演示数据 · Report generated from learning data · demo figures</p>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'hd.eyebrow':'黔志 · 学情','hd.title':'成效报告',
+    'hd.sub':'掌握度、学习轨迹、待强化词与自动建议 —— 一页可打印的学情单，面向学校与家长交付。',
+    'st.label':'学情单 · 学习者','st.meta':'贵州志 · 第 21 赛季 · 更新于 2026.10.15',
+    'st.s1':'积分','st.s2':'已解锁','st.s3':'已集章','st.s4':'连胜','st.print':'打印 / 导出 PDF',
+    'm.t':'章节掌握度','m.sub':'Mastery by chapter · 由闯关得分与复习正确率加权',
+    'w.t':'八周学习轨迹','w.sub':'Weekly practice · 每周完成的闯关数（红柱 = 低于目标的周）',
+    'k.t':'待强化词','k.sub':'Words to reinforce · 近两周答错 2 次以上的词，自动进入复习队列',
+    'k.h1':'Word 词汇','k.h2':'IPA 音标','k.h3':'Meaning 释义','k.h4':'错误','k.h5':'最近练习',
+    'k.w1':'蜡染','k.w2':'刺绣','k.w3':'鼓楼','k.w4':'靛蓝','k.w5':'梯田','k.w6':'银匠',
+    'a.t':'自动建议','a.sub':'Auto suggestions · 根据近两季数据生成',
+    'a.a1':'第 III 章正确率连续两周低于 60%，建议把「山水贵州」的 6 个景区词卡加入每日晨读。',
+    'a.a2':'W5 因缺勤掉出连胜，本季已恢复 3 天连胜 —— 保持到 Day 7 可再拿 +50。',
+    'a.a3':'「蜡染 / batik」的拼写错误集中在双写 t，推荐完成一次 Batik Workshop 主题闯关做情景巩固。',
+    'ft.note':'本报告由学习数据自动生成 · 当前为演示数据',
+  },
+  en: {
+    'hd.eyebrow':'Guizhou Journal','hd.title':'Progress Report',
+    'hd.sub':'Mastery, weekly trajectory, words to reinforce and auto suggestions — a one-page printable report for schools and parents.',
+    'st.label':'Progress Report · Learner','st.meta':'Rita\'s Guizhou Journal · Season 21 · Updated 2026.10.15',
+    'st.s1':'Points','st.s2':'Unlocked','st.s3':'Stamps','st.s4':'Streak','st.print':'Print / PDF',
+    'm.t':'Mastery by Chapter','m.sub':'Weighted by quest scores and review accuracy',
+    'w.t':'Eight-Week Trajectory','w.sub':'Quests completed per week (red = below target)',
+    'k.t':'Words to Reinforce','k.sub':'Missed twice or more in the past two weeks — auto-queued for review',
+    'k.h1':'Word','k.h2':'IPA','k.h3':'Meaning','k.h4':'Missed','k.h5':'Last tried',
+    'k.w1':'wax-resist dyeing','k.w2':'needlework','k.w3':'drum tower','k.w4':'indigo blue','k.w5':'terraced fields','k.w6':'silversmith',
+    'a.t':'Auto Suggestions','a.sub':'Generated from the last two seasons of data',
+    'a.a1':'Chapter III accuracy has been below 60% for two weeks — add the six landscape word cards to morning reading.',
+    'a.a2':'The streak broke in W5 due to absence and is back to 3 — hold it to Day 7 for another +50.',
+    'a.a3':'Spelling slips on "batik" cluster on the double t — one Batik Workshop quest will consolidate it in context.',
+    'ft.note':'Report generated from learning data · demo figures',
+  }
+};
+renderChrome('report');
+initPage();
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>纹样共创 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.studio{padding:88px 40px 120px;background:var(--paper)}
+.studio-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
+.canvas-box{border:1px solid var(--line);background:var(--white);padding:36px;position:relative}
+.canvas-box svg{width:100%;height:auto;display:block}
+.plate-label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.plate-label b{font-family:'Noto Serif SC',serif;font-size:14px;font-weight:600;color:var(--ink);letter-spacing:0.12em}
+.plate-label i{font-family:'Playfair Display',serif;font-size:12px;color:var(--ink-3)}
+.swatches{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.swatch{display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;background:none}
+.swatch .dot{
+  width:40px;height:40px;border-radius:50%;background:var(--c);
+  border:2px solid transparent;transition:transform .2s, box-shadow .2s;
+}
+.swatch:hover .dot{transform:scale(1.1)}
+.swatch.active .dot{
+  box-shadow:0 0 0 3px var(--white), 0 0 0 5px var(--ink);
+  transform:scale(1.05);
+}
+.swatch .lbl{
+  font-family:'JetBrains Mono','Noto Serif SC',monospace;font-size:10.5px;
+  color:var(--ink-3);white-space:nowrap;letter-spacing:0.02em;
+}
+.swatch.active .lbl{color:var(--ink)}
+.form-box{border:1px solid var(--line);background:var(--white);padding:36px}
+.form-box h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--ink);margin-bottom:6px}
+.form-box .sub{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--ink-3);margin-bottom:28px}
+.field{margin-bottom:22px}
+.field label{
+  display:block;font-family:'Noto Serif SC',serif;
+  font-size:12px;color:var(--ink-2);letter-spacing:0.06em;margin-bottom:8px;
+}
+.field input,.field textarea{
+  width:100%;border:1px solid var(--line-2);background:var(--paper);
+  padding:12px 14px;font-family:'Noto Serif SC',serif;font-size:14px;color:var(--ink);
+  outline:none;transition:border-color .2s;resize:vertical;
+}
+.field input:focus,.field textarea:focus{border-color:var(--cinnabar)}
+.pick{display:flex;gap:10px;flex-wrap:wrap}
+.pick .p{
+  width:36px;height:36px;border-radius:50%;cursor:pointer;
+  border:2px solid transparent;
+}
+.pick .p.active{border-color:var(--ink);box-shadow:0 0 0 2px var(--white) inset}
+.gallery{margin-top:64px}
+.gallery h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--ink);margin-bottom:24px}
+.g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.g-item{border:1px solid var(--line);background:var(--white);padding:20px;text-align:center}
+.g-item svg{width:70%;height:auto}
+.g-item b{display:block;font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink);margin-top:12px}
+.g-item small{font-family:'Playfair Display',serif;font-style:italic;font-size:11px;color:var(--ink-3)}
+@media (max-width:1080px){.studio-grid,.g-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.studio{padding:56px 20px 80px}}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="studio">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="hd.eyebrow">Pattern Studio</div>
+      <h1 class="section-title" data-i18n="hd.title">纹样共创</h1>
+      <p class="section-cn" data-i18n="hd.sub">选一个苗绣 / 蜡染纹样，配一套你自己的颜色，留下一句英文名言 —— 提交后进入共创画廊。</p>
+
+      <div class="studio-grid">
+        <div class="canvas-box">
+          <div class="plate-label"><b data-i18n="cv.label">蝴蝶妈妈 · 纹样盘</b><i data-i18n="cv.labelEn">Butterfly Mother</i></div>
+          <svg id="pattern" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="380" height="380" fill="none" stroke="#15171A" stroke-width="1" opacity="0.18"/>
+            <rect x="18" y="18" width="364" height="364" fill="none" stroke="#15171A" stroke-width="0.6" opacity="0.12"/>
+            <!-- 触角 -->
+            <g stroke="#15171A" stroke-width="1.8" fill="none" stroke-linecap="round">
+              <path d="M191 126 C 182 102 170 90 154 74"/>
+              <path d="M209 126 C 218 102 230 90 246 74"/>
+            </g>
+            <circle cx="152" cy="71" r="3.5" fill="#15171A"/>
+            <circle cx="248" cy="71" r="3.5" fill="#15171A"/>
+            <!-- 左翅 -->
+            <g stroke="#15171A" stroke-width="2" stroke-linejoin="round">
+              <path class="c-main" d="M187 164 C 170 128 138 102 100 100 C 68 98 52 118 56 146 C 61 180 96 210 148 220 C 168 224 182 214 186 196 C 188 186 188 174 187 164 Z" fill="#1F3A5F"/>
+              <path class="c-main" d="M186 236 C 164 254 140 282 138 310 C 137 330 150 342 166 336 C 180 330 184 314 181 300 C 180 292 181 272 188 254 Z" fill="#1F3A5F"/>
+            </g>
+            <!-- 右翅（镜像） -->
+            <g transform="translate(400,0) scale(-1,1)" stroke="#15171A" stroke-width="2" stroke-linejoin="round">
+              <path class="c-main" d="M187 164 C 170 128 138 102 100 100 C 68 98 52 118 56 146 C 61 180 96 210 148 220 C 168 224 182 214 186 196 C 188 186 188 174 187 164 Z" fill="#1F3A5F"/>
+              <path class="c-main" d="M186 236 C 164 254 140 282 138 310 C 137 330 150 342 166 336 C 180 330 184 314 181 300 C 180 292 181 272 188 254 Z" fill="#1F3A5F"/>
+            </g>
+            <!-- 蜡刀白线：上翅双 contour -->
+            <g stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round">
+              <path d="M174 170 C 160 140 134 118 104 116 C 80 114 68 128 71 148 C 75 174 102 196 144 204"/>
+              <path d="M226 170 C 240 140 266 118 296 116 C 320 114 332 128 329 148 C 325 174 298 196 256 204"/>
+              <path d="M120 128 C 104 132 92 142 88 156"/>
+              <path d="M280 128 C 296 132 308 142 312 156"/>
+              <!-- 上翅肩部弧环 -->
+              <circle cx="146" cy="180" r="7"/>
+              <circle cx="254" cy="180" r="7"/>
+              <!-- 下翅内轮廓 + 涡卷 -->
+              <path d="M176 250 C 160 264 148 286 148 306"/>
+              <path d="M224 250 C 240 264 252 286 252 306"/>
+              <path d="M160 318 C 152 328 162 340 172 332 C 178 326 172 316 164 320"/>
+              <path d="M240 318 C 248 328 238 340 228 332 C 222 326 228 316 236 320"/>
+            </g>
+            <!-- 翅面蜡点 -->
+            <g fill="#FFFFFF">
+              <circle cx="98" cy="136" r="2.6"/><circle cx="112" cy="148" r="2.2"/><circle cx="86" cy="156" r="2"/>
+              <circle cx="302" cy="136" r="2.6"/><circle cx="288" cy="148" r="2.2"/><circle cx="314" cy="156" r="2"/>
+              <circle cx="170" cy="288" r="2.6"/><circle cx="230" cy="288" r="2.6"/>
+            </g>
+            <!-- 身体（纺锤形） -->
+            <path class="c-main" d="M200 141 C 210 156 214 186 212 216 C 210 248 206 268 200 276 C 194 268 190 248 188 216 C 186 186 190 156 200 141 Z" fill="#1F3A5F" stroke="#15171A" stroke-width="2" stroke-linejoin="round"/>
+            <g stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round">
+              <line x1="192" y1="168" x2="208" y2="168"/>
+              <line x1="191" y1="186" x2="209" y2="186"/>
+              <line x1="190.5" y1="204" x2="209.5" y2="204"/>
+              <line x1="191.5" y1="222" x2="208.5" y2="222"/>
+              <line x1="193.5" y1="240" x2="206.5" y2="240"/>
+            </g>
+            <!-- 头部 -->
+            <circle cx="200" cy="133" r="10.5" fill="#15171A"/>
+            <circle cx="196" cy="130" r="1.8" fill="#FFFFFF"/>
+            <circle cx="204" cy="130" r="1.8" fill="#FFFFFF"/>
+            <!-- 尾部菱形 -->
+            <path class="c-main" d="M200 316 L208 330 L200 344 L192 330 Z" fill="#1F3A5F" stroke="#15171A" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M200 324 L203.5 330 L200 336 L196.5 330 Z" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+            <!-- 底部卷草纹 -->
+            <g stroke="#15171A" stroke-width="1.8" fill="none" stroke-linecap="round">
+              <path d="M56 328 C 52 310 66 298 80 304 C 92 309 92 324 82 328 C 74 331 68 324 72 318"/>
+              <path d="M56 328 C 60 340 72 348 88 348"/>
+              <path d="M344 328 C 348 310 334 298 320 304 C 308 309 308 324 318 328 C 326 331 332 324 328 318"/>
+              <path d="M344 328 C 340 340 328 348 312 348"/>
+            </g>
+          </svg>
+          <div class="swatches" id="swatches"></div>
+        </div>
+
+        <div class="form-box">
+          <h3 data-i18n="fm.title">提交你的共创</h3>
+          <div class="sub" data-i18n="fm.sub">示例提交 · 演示版不保存数据</div>
+          <div class="field">
+            <label data-i18n="fm.f1">你的名字 · Name</label>
+            <input type="text" placeholder="Rita" value="Rita">
+          </div>
+          <div class="field">
+            <label data-i18n="fm.f2">主色 · Main Color</label>
+            <div class="pick" id="pick"></div>
+          </div>
+          <div class="field">
+            <label data-i18n="fm.f3">你的英文名言 · Your line in English</label>
+            <textarea rows="3" placeholder="Tradition is a river, not a museum.">Tradition is a river, not a museum.</textarea>
+          </div>
+          <button class="seal-btn" style="font-size:14px;padding:12px 28px" data-i18n="fm.submit">提交共创</button>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <h3 data-i18n="ga.title">共创画廊 · Community Gallery</h3>
+        <div class="g-grid" id="gallery"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'hd.eyebrow':'黔志 · 共创','hd.title':'纹样共创',
+    'hd.sub':'选一个苗绣 / 蜡染纹样，配一套你自己的颜色，留下一句英文名言 —— 提交后进入共创画廊。',
+    'fm.title':'提交你的共创','fm.sub':'示例提交 · 演示版不保存数据',
+    'fm.f1':'你的名字 · Name','fm.f2':'主色 · Main Color','fm.f3':'你的英文名言 · Your line in English',
+    'fm.submit':'提交共创','ga.title':'共创画廊 · Community Gallery',
+    'cv.label':'蝴蝶妈妈 · 纹样盘','cv.labelEn':'Butterfly Mother',
+    'ga.g1':'靛青客','ga.g2':'朱砂客','ga.g3':'古铜客',
+    'ga.q1':'"Blue is the color of patience."','ga.q2':'"Red runs in the thread."','ga.q3':'"Old bronze, new voice."',
+  },
+  en: {
+    'hd.eyebrow':'Guizhou Journal','hd.title':'Pattern Studio',
+    'hd.sub':'Pick a Miao or Dong pattern, give it your own palette, and leave one line in English — your piece joins the community gallery.',
+    'fm.title':'Submit Your Piece','fm.sub':'Sample submission · demo only, nothing is saved',
+    'fm.f1':'Your name','fm.f2':'Main color','fm.f3':'Your line in English',
+    'fm.submit':'Submit','ga.title':'Community Gallery',
+    'ga.g1':'Indigo Guest','ga.g2':'Cinnabar Guest','ga.g3':'Bronze Guest',
+    'ga.q1':'"Blue is the color of patience."','ga.q2':'"Red runs in the thread."','ga.q3':'"Old bronze, new voice."',
+  }
+};
+
+const PALETTE = [
+  { name:'Indigo 靛青',  hex:'#1F3A5F' },
+  { name:'Cinnabar 朱砂', hex:'#B8352C' },
+  { name:'Bronze 古铜',  hex:'#8C6B2E' },
+  { name:'Ink 墨黑',     hex:'#15171A' },
+  { name:'Forest 松绿',  hex:'#2E5241' },
+];
+
+function setMain(hex){
+  document.querySelectorAll('#pattern .c-main').forEach(el => {
+    el.setAttribute('fill', hex);
+  });
+}
+function build(){
+  const sw = document.getElementById('swatches');
+  const pk = document.getElementById('pick');
+  PALETTE.forEach((c, i) => {
+    const s = document.createElement('div');
+    s.className = 'swatch' + (i === 0 ? ' active' : '');
+    s.style.setProperty('--c', c.hex);
+    s.innerHTML = `<span class="dot"></span><span class="lbl">${c.name}</span>`;
+    s.addEventListener('click', () => {
+      sw.querySelectorAll('.swatch').forEach(x => x.classList.remove('active'));
+      s.classList.add('active'); setMain(c.hex);
+    });
+    sw.appendChild(s);
+    const p = document.createElement('div');
+    p.className = 'p' + (i === 0 ? ' active' : '');
+    p.style.background = c.hex;
+    p.addEventListener('click', () => {
+      pk.querySelectorAll('.p').forEach(x => x.classList.remove('active'));
+      p.classList.add('active'); setMain(c.hex);
+    });
+    pk.appendChild(p);
+  });
+
+  const svgSrc = document.getElementById('pattern').outerHTML;
+  const gal = document.getElementById('gallery');
+  [['#1F3A5F','ga.g1','ga.q1'],['#B8352C','ga.g2','ga.q2'],['#8C6B2E','ga.g3','ga.q3']].forEach(([hex, tk, qk]) => {
+    const d = document.createElement('div');
+    d.className = 'g-item';
+  d.innerHTML = svgSrc.replace(/fill="#1F3A5F"/g, `fill="${hex}"`)
+    + `<b data-i18n="${tk}"></b><small data-i18n="${qk}"></small>`;
+    gal.appendChild(d);
+  });
+}
+build();
+renderChrome('pattern');
+initPage();
+</script>
+</body>
+</html>

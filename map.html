@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闯关地图 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.page-head{padding:88px 40px 56px;background:var(--paper);border-bottom:1px solid var(--line)}
+.page-head .section-cn{margin-bottom:0}
+.chapters{padding:80px 40px 120px;background:var(--paper)}
+.chapter{margin-bottom:96px}
+.chapter:last-child{margin-bottom:0}
+.chapter-head{
+  display:flex;align-items:baseline;gap:28px;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:18px;margin-bottom:36px;
+}
+.chapter-num{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:500;
+  font-size:44px;color:var(--cinnabar);line-height:1;
+}
+.chapter-title{font-family:'Noto Serif SC',serif;font-weight:700;font-size:26px;color:var(--ink)}
+.chapter-en{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:15px;color:var(--ink-3);
+}
+.chapter-desc{
+  margin-left:auto;max-width:360px;
+  font-family:'Noto Serif SC',serif;
+  font-size:13px;color:var(--ink-3);line-height:1.8;text-align:right;
+}
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.node{
+  border:1px solid var(--line);background:var(--white);
+  text-decoration:none;display:block;
+  transition:transform .25s, box-shadow .25s;
+}
+.node:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(21,23,26,.10)}
+.node-media{aspect-ratio:16/9;overflow:hidden;background:var(--indigo);position:relative}
+.node-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform .5s}
+.node:hover .node-media img{transform:scale(1.04)}
+.node-media.pattern{
+  display:grid;place-items:center;
+  background:linear-gradient(135deg, var(--indigo-deep), var(--indigo));
+}
+.node-media.pattern svg{width:42%;height:42%;opacity:.9}
+.node-media .node-idx{
+  position:absolute;top:12px;left:14px;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:12px;
+  color:rgba(255,255,255,.85);letter-spacing:0.1em;
+}
+.node-body{padding:22px 24px 24px}
+.node-cn{font-family:'Noto Serif SC',serif;font-weight:700;font-size:18px;color:var(--ink)}
+.node-en{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--ink-3);margin-bottom:14px}
+.node-meta{display:flex;align-items:center;gap:14px;font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink-3)}
+.node-tag{border:1px solid var(--line-2);border-radius:99px;padding:2px 10px}
+.node-lvl{color:var(--bronze);font-size:10px;letter-spacing:2px}
+.node-go{margin-left:auto;color:var(--cinnabar);font-size:12px;transition:transform .2s}
+.node:hover .node-go{transform:translateX(4px)}
+@media (max-width:1080px){.nodes{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){
+  .page-head{padding:56px 20px 40px}
+  .chapters{padding:56px 20px 80px}
+  .nodes{grid-template-columns:1fr}
+  .chapter-head{flex-wrap:wrap;gap:12px}
+  .chapter-desc{margin-left:0;text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="page-head">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="head.eyebrow">Quest Map</div>
+      <h1 class="section-title" data-i18n="head.title">闯关地图</h1>
+      <p class="section-cn" data-i18n="head.sub">四章 · 40 个主题 · 120 道关卡。每通过一关点亮一个节点，每通一个主题盖一枚章。</p>
+    </div>
+  </section>
+
+  <section class="chapters"><div class="section-inner" id="chapters"></div></section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'head.eyebrow':'黔志 · 地图','head.title':'闯关地图',
+    'head.sub':'四章 · 40 个主题 · 120 道关卡。每通过一关点亮一个节点，每通一个主题盖一枚章。',
+    'node.go':'进入主题','node.quests':'3 关',
+  },
+  en: {
+    'head.eyebrow':'Guizhou Journal','head.title':'Quest Map',
+    'head.sub':'Four chapters, 40 themes, 120 quests. Clear a quest to light a node; clear a theme to earn a stamp.',
+    'node.go':'Enter','node.quests':'3 quests',
+  }
+};
+
+const PATTERN_SVGS = [
+  '<svg viewBox="0 0 100 100"><g stroke="#F2EFE7" stroke-width="0.8" fill="none"><path d="M50 14 L64 36 L50 50 L36 36 Z" fill="#B8352C"/><path d="M36 36 L20 26 L20 48 L36 56 Z" fill="none"/><path d="M64 36 L80 26 L80 48 L64 56 Z" fill="none"/><circle cx="50" cy="34" r="3" fill="#F2EFE7"/></g></svg>',
+  '<svg viewBox="0 0 100 100"><g stroke="#F2EFE7" stroke-width="0.6" fill="none"><path d="M10 30 L30 26 L50 34 L70 28 L90 32"/><path d="M10 50 L30 46 L50 54 L70 50 L90 52"/><path d="M10 70 L30 66 L50 74 L70 70 L90 72"/><circle cx="50" cy="50" r="10" fill="#B8352C" stroke="none"/></g></svg>',
+  '<svg viewBox="0 0 100 100"><g stroke="#F2EFE7" stroke-width="0.7" fill="none"><path d="M20 78 L24 66 L40 66 L40 78 Z" fill="#B8352C"/><path d="M30 66 L34 54 L50 54 L50 66 Z" fill="none"/><path d="M40 54 L44 42 L60 42 L60 54 Z" fill="#B8352C"/><line x1="18" y1="78" x2="82" y2="78"/><line x1="50" y1="42" x2="50" y2="30"/><circle cx="50" cy="26" r="3" fill="#F2EFE7"/></g></svg>',
+  '<svg viewBox="0 0 100 100"><g stroke="#F2EFE7" stroke-width="0.8" fill="none"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="18" fill="#B8352C" stroke="none"/><path d="M50 12 L50 88 M12 50 L88 50 M24 24 L76 76 M76 24 L24 76"/></g></svg>',
+];
+
+function nodeCard(t, idx){
+  const media = t.img
+    ? `<div class="node-media"><span class="node-idx">No.${String(idx+1).padStart(2,'0')}</span><img src="${t.img}" alt="${t.cn}" loading="lazy"></div>`
+    : `<div class="node-media pattern"><span class="node-idx">No.${String(idx+1).padStart(2,'0')}</span>${PATTERN_SVGS[(t.ch-1) % PATTERN_SVGS.length]}</div>`;
+  return `<a class="node" href="passport.html" title="${t.en}">
+    ${media}
+    <div class="node-body">
+      <div class="node-cn">${t.cn}</div>
+      <div class="node-en">${t.en}</div>
+      <div class="node-meta">
+        <span class="node-tag">${t.tag}</span>
+        <span class="node-lvl">${'<i class="fa-solid fa-star"></i>'.repeat(t.level)}</span>
+        <span class="node-go" data-i18n="node.go">进入主题 <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </div></a>`;
+}
+
+function build(){
+  const wrap = document.getElementById('chapters');
+  CHAPTERS.forEach(ch => {
+    const themes = THEMES.filter(t => t.ch === ch.id);
+    const sec = document.createElement('div');
+    sec.className = 'chapter';
+    sec.innerHTML = `
+      <div class="chapter-head">
+        <span class="chapter-num">${ch.num}</span>
+        <span><span class="chapter-title">${ch.cn}</span><br><span class="chapter-en">${ch.en} · ${themes.length} themes</span></span>
+        <span class="chapter-desc">${ch.desc}</span>
+      </div>
+      <div class="nodes">${themes.map((t,i) => nodeCard(t, THEMES.indexOf(t))).join('')}</div>`;
+    wrap.appendChild(sec);
+  });
+}
+build();
+renderChrome('map');
+initPage();
+</script>
+</body>
+</html>

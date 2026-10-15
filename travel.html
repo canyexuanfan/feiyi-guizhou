@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贵州攻略 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.dest{padding:88px 40px 96px;background:var(--paper)}
+.dest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.dcard{border:1px solid var(--line);background:var(--white);display:flex;flex-direction:column}
+.dcard .media{position:relative;overflow:hidden}
+.dcard .media img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:saturate(.92);transition:transform .5s}
+.dcard:hover .media img{transform:scale(1.04)}
+.dcard .season{
+  position:absolute;top:14px;left:14px;
+  font-family:'Noto Serif SC',serif;font-size:11.5px;
+  color:var(--white);background:rgba(17,32,58,.8);
+  padding:5px 12px;letter-spacing:0.04em;
+}
+.dcard .body{padding:26px 28px 30px}
+.dcard h3{font-family:'Noto Serif SC',serif;font-weight:700;font-size:20px;color:var(--ink)}
+.dcard .en{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--ink-3);margin-bottom:16px}
+.dcard p{font-family:'Noto Serif SC',serif;font-size:13.5px;line-height:1.95;color:var(--ink-2);margin-bottom:18px}
+.dcard .meta{display:flex;flex-wrap:wrap;gap:10px}
+.dcard .meta span{
+  font-family:'Noto Serif SC',serif;font-size:12px;color:var(--ink-3);
+  border:1px solid var(--line-2);border-radius:99px;padding:4px 12px;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.dcard .meta i{color:var(--cinnabar);font-size:10px}
+.route{padding:88px 40px 120px;background:var(--white);border-top:1px solid var(--line)}
+.route-line{position:relative;margin-top:56px}
+.route-line::before{
+  content:"";position:absolute;left:26px;top:6px;bottom:6px;
+  width:1px;background:var(--line-2);
+}
+.stop{position:relative;padding:0 0 44px 76px}
+.stop:last-child{padding-bottom:0}
+.stop-dot{
+  position:absolute;left:0;top:0;
+  width:54px;height:54px;border-radius:50%;
+  border:1.5px solid var(--cinnabar);background:var(--paper);
+  display:grid;place-items:center;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:15px;color:var(--cinnabar);
+}
+.stop h4{font-family:'Noto Serif SC',serif;font-weight:700;font-size:17px;color:var(--ink);margin-bottom:6px}
+.stop p{font-family:'Noto Serif SC',serif;font-size:13.5px;line-height:1.9;color:var(--ink-2);max-width:640px}
+.stop .stamps-learn{
+  margin-top:10px;font-family:'Playfair Display',serif;font-style:italic;
+  font-size:12px;color:var(--bronze);letter-spacing:0.06em;
+}
+@media (max-width:1080px){.dest-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.dest,.route{padding:56px 20px 80px}}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="dest">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="hd.eyebrow">Travel Notes</div>
+      <h1 class="section-title" data-i18n="hd.title">贵州攻略</h1>
+      <p class="section-cn" data-i18n="hd.sub">四个最值得讲的地点，配上最佳季节与交通 —— 旅行回来，故事刚好讲得完。</p>
+      <div class="dest-grid" style="margin-top:56px">
+        <div class="dcard">
+          <div class="media"><img src="img/xijiang.jpg" alt="西江千户苗寨" loading="lazy"><span class="season" data-i18n="d1.s">最佳 · 10月 - 次年2月</span></div>
+          <div class="body">
+            <h3>西江千户苗寨</h3>
+            <div class="en">Xijiang Qianhu Miao Village</div>
+            <p data-i18n="d1.d">全世界最大的苗族聚居村寨。白天看层层叠叠的吊脚楼，晚上上观景台看万家灯火，运气好还能赶上一场长桌宴。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-train"></i>凯里南站转车约 1h</span>
+              <span><i class="fa-solid fa-stamp"></i>相关章：西江 · 长桌宴 · 酸汤鱼</span>
+            </div>
+          </div>
+        </div>
+        <div class="dcard">
+          <div class="media"><img src="img/drumtower.jpg" alt="肇兴侗寨" loading="lazy"><span class="season" data-i18n="d2.s">最佳 · 4月 - 10月</span></div>
+          <div class="body">
+            <h3>肇兴侗寨</h3>
+            <div class="en">Zhaoxing Dong Village</div>
+            <p data-i18n="d2.d">五座鼓楼、五座风雨桥，晚上有侗族大歌演出。比西江安静，适合住两晚，清晨的雾气里的鼓楼最好看。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-train"></i>从江高铁站车程约 15min</span>
+              <span><i class="fa-solid fa-stamp"></i>相关章：鼓楼 · 大歌 · 风雨桥</span>
+            </div>
+          </div>
+        </div>
+        <div class="dcard">
+          <div class="media"><img src="img/huangguoshu.jpg" alt="黄果树瀑布" loading="lazy"><span class="season" data-i18n="d3.s">最佳 · 6月 - 10月丰水期</span></div>
+          <div class="body">
+            <h3>黄果树瀑布</h3>
+            <div class="en">Huangguoshu Waterfall</div>
+            <p data-i18n="d3.d">亚洲第一大瀑布，水帘洞可以从瀑布背后穿过。丰水期声音先到 —— 记得学会 "thunderous" 这个词再去看。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-car"></i>贵阳自驾约 1.5h</span>
+              <span><i class="fa-solid fa-stamp"></i>相关章：黄果树</span>
+            </div>
+          </div>
+        </div>
+        <div class="dcard">
+          <div class="media"><img src="img/xijiang-river.jpg" alt="镇远古城" loading="lazy"><span class="season" data-i18n="d4.s">最佳 · 5月 - 9月</span></div>
+          <div class="body">
+            <h3>镇远古城</h3>
+            <div class="en">Zhenyuan Ancient Town</div>
+            <p data-i18n="d4.d">㵲阳河呈 S 形穿城而过，像一幅太极图。夜景沿河两岸都是灯笼，白天爬石屏山看全景。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-train"></i>镇远高铁站车程约 20min</span>
+              <span><i class="fa-solid fa-stamp"></i>相关章：镇远古城</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="route">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="rt.eyebrow">A Three-Day Route</div>
+      <h2 class="section-title" data-i18n="rt.title">三天两晚 · 黔东南线</h2>
+      <p class="section-cn" data-i18n="rt.sub">一条最顺的非遗动线：从苗寨到侗寨，再借道凯里返程 —— 沿途能集 9 枚章。</p>
+      <div class="route-line">
+        <div class="stop">
+          <div class="stop-dot">D1</div>
+          <h4>贵阳 → 西江千户苗寨</h4>
+          <p data-i18n="rt.d1">高铁到凯里南站转车，中午进寨。下午逛嘎歌古巷，晚上长桌宴 + 观景台夜景。可集章：西江、长桌宴、酸汤鱼。</p>
+          <div class="stamps-learn" data-i18n="rt.s1">Stamps: Xijiang / Long Table / Sour Soup</div>
+        </div>
+        <div class="stop">
+          <div class="stop-dot">D2</div>
+          <h4>西江 — 肇兴侗寨</h4>
+          <p data-i18n="rt.d2">上午包车经榕江到肇兴（约 3h），下午逛鼓楼群与风雨桥，晚上看侗族大歌演出。可集章：肇兴、鼓楼、大歌、风雨桥。</p>
+          <div class="stamps-learn" data-i18n="rt.s2">Stamps: Zhaoxing / Drum Tower / Grand Song / Wind-Rain Bridge</div>
+        </div>
+        <div class="stop">
+          <div class="stop-dot">D3</div>
+          <h4>肇兴 — 丹寨 — 返程</h4>
+          <p data-i18n="rt.d3">从江站返回凯里方向，顺路在丹寨停半天：蜡染工坊画一块自己的布，再从凯里南高铁返程。可集章：蜡染、蓝染侗布。</p>
+          <div class="stamps-learn" data-i18n="rt.s3">Stamps: Batik / Indigo Cloth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'hd.eyebrow':'黔志 · 攻略','hd.title':'贵州攻略',
+    'hd.sub':'四个最值得讲的地点，配上最佳季节与交通 —— 旅行回来，故事刚好讲得完。',
+    'd1.s':'最佳 · 10月 - 次年2月','d1.d':'全世界最大的苗族聚居村寨。白天看层层叠叠的吊脚楼，晚上上观景台看万家灯火，运气好还能赶上一场长桌宴。',
+    'd2.s':'最佳 · 4月 - 10月','d2.d':'五座鼓楼、五座风雨桥，晚上有侗族大歌演出。比西江安静，适合住两晚，清晨雾气里的鼓楼最好看。',
+    'd3.s':'最佳 · 6月 - 10月丰水期','d3.d':'亚洲第一大瀑布，水帘洞可以从瀑布背后穿过。丰水期声音先到 —— 记得学会 "thunderous" 这个词再去看。',
+    'd4.s':'最佳 · 5月 - 9月','d4.d':'㵲阳河呈 S 形穿城而过，像一幅太极图。夜景沿河两岸都是灯笼，白天爬石屏山看全景。',
+    'rt.eyebrow':'黔志 · 线路','rt.title':'三天两晚 · 黔东南线',
+    'rt.sub':'一条最顺的非遗动线：从苗寨到侗寨，再借道凯里返程 —— 沿途能集 9 枚章。',
+    'rt.d1':'高铁到凯里南站转车，中午进寨。下午逛嘎歌古巷，晚上长桌宴 + 观景台夜景。可集章：西江、长桌宴、酸汤鱼。',
+    'rt.s1':'Stamps: Xijiang / Long Table / Sour Soup',
+    'rt.d2':'上午包车经榕江到肇兴（约 3h），下午逛鼓楼群与风雨桥，晚上看侗族大歌演出。可集章：肇兴、鼓楼、大歌、风雨桥。',
+    'rt.s2':'Stamps: Zhaoxing / Drum Tower / Grand Song / Wind-Rain Bridge',
+    'rt.d3':'从江站返回凯里方向，顺路在丹寨停半天：蜡染工坊画一块自己的布，再从凯里南高铁返程。可集章：蜡染、蓝染侗布。',
+    'rt.s3':'Stamps: Batik / Indigo Cloth',
+  },
+  en: {
+    'hd.eyebrow':'Guizhou Journal','hd.title':'Travel Notes',
+    'hd.sub':'Four places worth telling, with the best seasons and routes — so the stories are ready to tell when you are back.',
+    'd1.s':'Best · Oct – Feb','d1.d':'The largest Miao village in the world. Stilt houses stacked on the hills by day, a sea of lights from the viewpoint at night — and if you are lucky, a long table feast.',
+    'd2.s':'Best · Apr – Oct','d2.d':'Five drum towers, five wind-rain bridges, and Grand Song shows at night. Quieter than Xijiang; stay two nights and catch the towers in morning mist.',
+    'd3.s':'Best · Jun – Oct (high water)','d3.d':'Asia\'s largest waterfall — walk behind it through the Water Curtain Cave. In high water season you hear it before you see it. Learn "thunderous" first.',
+    'd4.s':'Best · May – Sep','d4.d':'The Wuyang River bends through town in an S-shape like a taiji diagram. Lanterns line both banks at night; climb Shiping Mountain for the panorama.',
+    'rt.eyebrow':'Guizhou Journal','rt.title':'Three Days in Qiandongnan',
+    'rt.sub':'The smoothest heritage route: Miao village to Dong village, back via Kaili — nine stamps along the way.',
+    'rt.d1':'High-speed rail to Kaili South, transfer to Xijiang by noon. Gage old lanes in the afternoon; long table feast and night view in the evening.',
+    'rt.s1':'Stamps: Xijiang / Long Table / Sour Soup',
+    'rt.d2':'Charter a car via Rongjiang to Zhaoxing (about 3h). Drum towers and wind-rain bridges in the afternoon, Grand Song show at night.',
+    'rt.s2':'Stamps: Zhaoxing / Drum Tower / Grand Song / Wind-Rain Bridge',
+    'rt.d3':'Return via Kaili with a half-day stop in Danzhai: draw your own batik cloth at a workshop, then head home from Kaili South.',
+    'rt.s3':'Stamps: Batik / Indigo Cloth',
+  }
+};
+renderChrome('travel');
+initPage();
+</script>
+</body>
+</html>

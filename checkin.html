@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛季打卡 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.season{padding:88px 40px 120px;background:var(--paper)}
+.season-box{border:1px solid var(--line);background:var(--white);padding:36px;max-width:860px;margin:0 auto}
+.season-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.season-meta{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink-2);letter-spacing:0.05em}
+.season-meta b{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--ink);display:block;margin:4px 0 2px}
+.season-bar{margin-top:22px;height:6px;background:var(--paper);border:1px solid var(--line);position:relative}
+.season-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--indigo);transition:width .5s}
+.season-bar-lb{display:flex;justify-content:space-between;margin-top:10px;font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--ink-3)}
+.checkin-stats{display:flex;gap:34px;text-align:right}
+.checkin-stats div b{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--cinnabar);display:block}
+.checkin-stats div span{font-family:'Noto Serif SC',serif;font-size:11.5px;color:var(--ink-3)}
+.btn-checkin{
+  margin-top:14px;font-family:'Noto Serif SC',serif;font-size:13px;letter-spacing:0.1em;
+  background:var(--cinnabar);color:var(--white);border:none;padding:11px 30px;cursor:pointer;
+  transition:opacity .2s;
+}
+.btn-checkin:disabled{opacity:.45;cursor:default}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:34px;max-width:680px;margin-left:auto;margin-right:auto}
+.day{
+  aspect-ratio:1;border:1px solid var(--line);background:var(--paper);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  font-family:'Playfair Display',serif;position:relative;
+}
+.day b{font-size:16px;font-weight:600;color:var(--ink)}
+.day span{font-family:'Noto Serif SC',serif;font-size:10px;color:var(--ink-3)}
+.day.done{background:var(--indigo);border-color:var(--indigo)}
+.day.done b,.day.done span{color:var(--white)}
+.day.today{border:2px solid var(--cinnabar)}
+.day.today::after{
+  content:'';position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--cinnabar);
+}
+.day.bonus::before{
+  content:'';position:absolute;top:6px;left:6px;width:7px;height:7px;border-radius:50%;background:var(--bronze,#8C6B2E);
+}
+.day:not(.done):not(.today){
+  background:repeating-linear-gradient(135deg, var(--paper) 0 7px, #ECE7DB 7px 8px);
+}
+.day span.up-b{color:#8C6B2E;font-weight:500}
+.day.done span.up-b,.day.done span{color:var(--white)}
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.ladder-card{border:1px solid var(--line);background:var(--white);padding:30px;text-align:center}
+.ladder-card .fa-solid{font-size:22px;color:var(--cinnabar);margin-bottom:14px}
+.ladder-card b{display:block;font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--ink)}
+.ladder-card b + i{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--ink-3);margin:4px 0 10px}
+.ladder-card p{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--ink-2);line-height:1.7;margin:0}
+.school-band{
+  margin-top:34px;border:1px solid var(--line);background:var(--white);padding:22px 30px;
+  display:flex;align-items:center;gap:18px;
+}
+.school-band .fa-solid{font-size:20px;color:var(--indigo)}
+.school-band p{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink-2);margin:0;line-height:1.8}
+@media (max-width:900px){.ladder{grid-template-columns:1fr}.days{gap:8px}}
+@media (max-width:768px){.season{padding:56px 20px 80px}.checkin-stats{gap:20px}}
+@media (max-width:480px){.days{gap:6px}.day{gap:2px}.day b{font-size:14px}.day span{font-size:8.5px}.day.today::after{width:5px;height:5px;top:4px;right:4px}.day.bonus::before{width:5px;height:5px;top:4px;left:4px}}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="season">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="hd.eyebrow">Season Check-in</div>
+      <h1 class="section-title" data-i18n="hd.title">赛季打卡</h1>
+      <p class="section-cn" data-i18n="hd.sub">14 天一赛季，一年 24 期。连续打卡解锁阶梯积分，对齐进校的双周课时包 —— 给学习一个看得见的节奏。</p>
+
+      <div class="season-box">
+        <div class="season-head">
+          <div class="season-meta">
+            <span data-i18n="cs.term">当前赛季 · 第 21 期</span>
+            <b>Oct 13 — Oct 26</b>
+            <span data-i18n="cs.day">第 9 天 / 共 14 天</span>
+          </div>
+          <div>
+            <div class="checkin-stats">
+              <div><b id="st-points">160</b><span data-i18n="cs.points">积分 Points</span></div>
+              <div><b id="st-streak">9</b><span data-i18n="cs.streak">连胜 Streak</span></div>
+            </div>
+            <button class="btn-checkin" id="btn-checkin" data-i18n="cs.btn">打卡 · Check in</button>
+          </div>
+        </div>
+        <div class="season-bar"><i id="bar" style="width:64.3%"></i></div>
+        <div class="season-bar-lb"><span data-i18n="cs.barL">Day 1</span><span id="bar-lb">3 / 14</span><span data-i18n="cs.barR">Day 14</span></div>
+
+        <div class="days" id="days"></div>
+      </div>
+
+      <div class="ladder">
+        <div class="ladder-card">
+          <i class="fa-solid fa-fire"></i>
+          <b>+20</b><i data-i18n="ld.t1">3-Day Streak</i>
+          <p data-i18n="ld.d1">连续打卡 3 天，触发第一档连胜积分。刚开始的一周，靠它把习惯钉住。</p>
+        </div>
+        <div class="ladder-card">
+          <i class="fa-solid fa-bolt"></i>
+          <b>+50</b><i data-i18n="ld.t2">7-Day Streak</i>
+          <p data-i18n="ld.d2">连续 7 天，解锁第二档。半程里程碑，正好卡在双周课时的中点。</p>
+        </div>
+        <div class="ladder-card">
+          <i class="fa-solid fa-crown"></i>
+          <b>+120</b><i data-i18n="ld.t3">Perfect Season</i>
+          <p data-i18n="ld.d3">14 天全勤，拿到整季最高奖励，并解锁下一赛季的优先主题包。</p>
+        </div>
+      </div>
+
+      <div class="school-band">
+        <i class="fa-solid fa-school"></i>
+        <p data-i18n="cs.school">赛季节奏与进校「双周课时包」对齐：一个赛季 = 两周课时。打卡单可导出给家长与班主任查看，课堂奖励与线上积分同源。</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'hd.eyebrow':'黔志 · 节奏','hd.title':'赛季打卡',
+    'hd.sub':'14 天一赛季，一年 24 期。连续打卡解锁阶梯积分，对齐进校的双周课时包 —— 给学习一个看得见的节奏。',
+    'cs.term':'当前赛季 · 第 21 期','cs.day':'第 9 天 / 共 14 天',
+    'cs.points':'积分 Points','cs.streak':'连胜 Streak','cs.btn':'打卡 · Check in','cs.btnDone':'今日已打卡',
+    'cs.barL':'Day 1','cs.barR':'Day 14',
+    'ld.t1':'连续 3 天','ld.d1':'连续打卡 3 天，触发第一档连胜积分。刚开始的一周，靠它把习惯钉住。',
+    'ld.t2':'连续 7 天','ld.d2':'连续 7 天，解锁第二档。半程里程碑，正好卡在双周课时的中点。',
+    'ld.t3':'14 天全勤','ld.d3':'14 天全勤，拿到整季最高奖励，并解锁下一赛季的优先主题包。',
+    'cs.school':'赛季节奏与进校「双周课时包」对齐：一个赛季 = 两周课时。打卡单可导出给家长与班主任查看，课堂奖励与线上积分同源。',
+    'cs.done':'已打卡','cs.today':'今天','cs.next':'待打卡',
+  },
+  en: {
+    'hd.eyebrow':'Guizhou Journal','hd.title':'Season Check-in',
+    'hd.sub':'A 14-day season, 24 seasons a year. Streaks unlock bonus points and mirror the two-week classroom packs we run with schools — rhythm you can see.',
+    'cs.term':'Current Season · No. 21','cs.day':'Day 9 of 14',
+    'cs.points':'Points','cs.streak':'Streak','cs.btn':'Check in','cs.btnDone':'Checked in today',
+    'cs.barL':'Day 1','cs.barR':'Day 14',
+    'ld.t1':'3-Day Streak','ld.d1':'Three days in a row unlocks the first streak bonus. The first week is about pinning the habit down.',
+    'ld.t2':'7-Day Streak','ld.d2':'Seven days unlocks the second tier — a half-way milestone that lands mid classroom-pack.',
+    'ld.t3':'Perfect Season','ld.d3':'All 14 days earns the season top reward and priority access to next season\'s theme pack.',
+    'cs.school':'The season mirrors our two-week school packs: one season = one classroom cycle. Check-in sheets can be exported for parents and teachers, with rewards shared across class and web.',
+    'cs.done':'Done','cs.today':'Today','cs.next':'Upcoming',
+  }
+};
+
+let state = { done: 9, points: 160, streak: 9, checkedToday: false };
+
+function renderDays(){
+  const el = document.getElementById('days');
+  const BONUS = {3:'+20', 7:'+50', 14:'+120'};
+  let html = '';
+  for(let d=1; d<=14; d++){
+    const done = d <= state.done;
+    const isToday = d === state.done + (state.checkedToday ? 0 : 1) && !done;
+    const bonus = BONUS[d] ? ' bonus' : '';
+    const cls = 'day' + (done ? ' done' : '') + (isToday ? ' today' : '') + bonus;
+    let lbTxt;
+    if (done) lbTxt = BONUS[d] ? `<span>${BONUS[d]}</span>` : '<span>+10</span>';
+    else if (isToday) lbTxt = '<span class="lb-today">Today</span>';
+    else if (BONUS[d]) lbTxt = `<span class="up-b">${BONUS[d]}</span>`;
+    else lbTxt = '<span>&nbsp;</span>';
+    html += `<div class="${cls}"><b>${d}</b>${lbTxt}</div>`;
+  }
+  el.innerHTML = html;
+  document.querySelectorAll('#days .today .lb-today').forEach(n=>{
+    n.setAttribute('data-i18n','cs.today');
+  });
+}
+function refreshStats(){
+  document.getElementById('st-points').textContent = state.points;
+  document.getElementById('st-streak').textContent = state.streak;
+  const prog = (state.done + (state.checkedToday?0:0));
+  document.getElementById('bar').style.width = (state.done/14*100) + '%';
+  document.getElementById('bar-lb').textContent = state.done + ' / 14';
+}
+document.getElementById('btn-checkin').addEventListener('click', function(){
+  if(state.checkedToday) return;
+  state.checkedToday = true; state.done += 1; state.streak += 1;
+  state.points += ([3,7,14].includes(state.done)) ? ({3:30,7:60,14:130}[state.done]) : 10;
+  this.disabled = true; this.setAttribute('data-i18n','cs.btnDone');
+  this.textContent = '今日已打卡';
+  renderDays(); refreshStats();
+});
+renderDays(); refreshStats();
+renderChrome('checkin');
+initPage();
+</script>
+</body>
+</html>

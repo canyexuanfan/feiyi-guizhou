@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一物一故事 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.feature{padding:88px 40px 100px;background:var(--paper)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.feature-img{position:relative}
+.feature-img img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--line)}
+.feature-img::after{
+  content:"FIG. 01 — BATIK";
+  position:absolute;left:14px;bottom:14px;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:11px;letter-spacing:0.16em;
+  color:var(--white);background:rgba(17,32,58,.75);
+  padding:6px 12px;
+}
+.feature-body .section-cn{margin-bottom:36px}
+.story-en{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:17.5px;line-height:1.85;color:var(--ink);
+  border-left:2px solid var(--cinnabar);
+  padding-left:24px;margin-bottom:28px;
+}
+.story-zh{
+  font-family:'Noto Serif SC',serif;
+  font-size:15px;line-height:2.05;color:var(--ink-2);margin-bottom:40px;
+}
+.key-sent{
+  border:1px solid var(--line);background:var(--white);
+  padding:24px 26px;
+}
+.key-sent small{
+  display:block;font-family:'Playfair Display',serif;
+  font-style:italic;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--cinnabar);margin-bottom:12px;
+}
+.key-sent p{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:16.5px;line-height:1.8;color:var(--ink);
+}
+.key-sent p + p{margin-top:8px}
+.stories{padding:96px 40px 120px;background:var(--white);border-top:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.scard{border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s;text-decoration:none}
+.scard:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(21,23,26,.10)}
+.scard img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.scard-body{padding:24px 26px 28px}
+.scard small{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--bronze);
+}
+.scard h3{font-family:'Noto Serif SC',serif;font-weight:700;font-size:19px;color:var(--ink);margin:8px 0 4px}
+.scard .en{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--ink-3);margin-bottom:14px}
+.scard p{font-family:'Noto Serif SC',serif;font-size:13.5px;line-height:1.9;color:var(--ink-2)}
+@media (max-width:1080px){.feature-grid{grid-template-columns:1fr;gap:40px}.story-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.feature,.stories{padding:56px 20px 80px}}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="feature">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="ft.eyebrow">One Object, One Story</div>
+      <h1 class="section-title" data-i18n="ft.title">一物一故事</h1>
+      <div class="feature-grid" style="margin-top:56px">
+        <div class="feature-img">
+          <img src="img/batik.jpg" alt="蜡染画蜡" loading="lazy">
+        </div>
+        <div class="feature-body">
+          <h2 style="font-family:'Noto Serif SC',serif;font-weight:700;font-size:24px;color:var(--ink);margin-bottom:8px" data-i18n="ft.h2">一把蜡刀，两代人的冰纹</h2>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--ink-3);margin-bottom:36px" data-i18n="ft.h2en">A wax knife, two generations of ice patterns</div>
+          <p class="story-en" data-i18n="ft.en">"Grandmother says the wax must be hot enough to flow like a stream, but calm enough to listen. When it cracks in the dye vat, the cloth remembers — we call it ice, and ice becomes a flower."</p>
+          <p class="story-zh" data-i18n="ft.zh">在丹寨的染坊里，阿婆把蜂蜡在小铜锅里化开。蜡刀蘸蜡，在白布上走出线条 —— 画得再稳，浸进靛蓝染缸时总会裂开细纹。这不是失败，苗家人叫它「冰纹」：蜡裂开的地方，蓝色渗进去，开出一朵谁也预料不到的花。Rita 会带你用英语讲这段故事：蜡怎么化、布怎么染、花怎么开。</p>
+          <div class="key-sent">
+            <small data-i18n="ft.keylabel">Tell it in three sentences</small>
+            <p data-i18n="ft.k1">"Wax is drawn before dye ever touches the cloth."</p>
+            <p data-i18n="ft.k2">"The cracks are not mistakes — they are ice patterns."</p>
+            <p data-i18n="ft.k3">"Where the wax breaks, a flower of blue begins."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="mo.eyebrow">More Stories</div>
+      <h2 class="section-title" data-i18n="mo.title">更多故事</h2>
+      <p class="section-cn" data-i18n="mo.sub">一件农特产，一段中英双语故事 —— 可读、可讲、可对外交付。</p>
+      <div class="story-grid">
+        <a class="scard" href="javascript:void(0)">
+          <img src="img/soursoup.jpg" alt="酸汤鱼" loading="lazy">
+          <div class="scard-body">
+            <small>No.02 · Taste</small>
+            <h3 data-i18n="mo.s1">红酸汤的三十天</h3>
+            <div class="en">Thirty Days of Red Sour Soup</div>
+            <p data-i18n="mo.s1d">一坛番茄发酵三十天才有这口酸 —— 贵州人不靠醋，靠时间。</p>
+          </div>
+        </a>
+        <a class="scard" href="javascript:void(0)">
+          <img src="img/silver.jpg" alt="银冠" loading="lazy">
+          <div class="scard-body">
+            <small>No.03 · Silver</small>
+            <h3 data-i18n="mo.s2">一顶银冠的重量</h3>
+            <div class="en">The Weight of a Silver Crown</div>
+            <p data-i18n="mo.s2d">盛装银冠可以重达十几斤 —— 越重，越是家底与祝福。</p>
+          </div>
+        </a>
+        <a class="scard" href="javascript:void(0)">
+          <img src="img/longtable.jpg" alt="长桌宴" loading="lazy">
+          <div class="scard-body">
+            <small>No.04 · Feast</small>
+            <h3 data-i18n="mo.s3">长桌为什么这么长</h3>
+            <div class="en">Why the Table Is So Long</div>
+            <p data-i18n="mo.s3d">桌子沿着街摆到看不到头 —— 客人越多，寨子越有面子。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'ft.eyebrow':'黔志 · 故事','ft.title':'一物一故事',
+    'ft.h2':'一把蜡刀，两代人的冰纹','ft.h2en':'A wax knife, two generations of ice patterns',
+    'ft.en':'"Grandmother says the wax must be hot enough to flow like a stream, but calm enough to listen. When it cracks in the dye vat, the cloth remembers — we call it ice, and ice becomes a flower."',
+    'ft.zh':'在丹寨的染坊里，阿婆把蜂蜡在小铜锅里化开。蜡刀蘸蜡，在白布上走出线条 —— 画得再稳，浸进靛蓝染缸时总会裂开细纹。这不是失败，苗家人叫它「冰纹」：蜡裂开的地方，蓝色渗进去，开出一朵谁也预料不到的花。Rita 会带你用英语讲这段故事：蜡怎么化、布怎么染、花怎么开。',
+    'ft.keylabel':'三句话讲好它',
+    'ft.k1':'"Wax is drawn before dye ever touches the cloth."',
+    'ft.k2':'"The cracks are not mistakes — they are ice patterns."',
+    'ft.k3':'"Where the wax breaks, a flower of blue begins."',
+    'mo.eyebrow':'黔志 · 更多','mo.title':'更多故事',
+    'mo.sub':'一件农特产，一段中英双语故事 —— 可读、可讲、可对外交付。',
+    'mo.s1':'红酸汤的三十天','mo.s1d':'一坛番茄发酵三十天才有这口酸 —— 贵州人不靠醋，靠时间。',
+    'mo.s2':'一顶银冠的重量','mo.s2d':'盛装银冠可以重达十几斤 —— 越重，越是家底与祝福。',
+    'mo.s3':'长桌为什么这么长','mo.s3d':'桌子沿着街摆到看不到头 —— 客人越多，寨子越有面子。',
+  },
+  en: {
+    'ft.eyebrow':'Guizhou Journal','ft.title':'One Object, One Story',
+    'ft.h2':'A wax knife, two generations of ice patterns','ft.h2en':'A wax knife, two generations of ice patterns',
+    'ft.en':'"Grandmother says the wax must be hot enough to flow like a stream, but calm enough to listen. When it cracks in the dye vat, the cloth remembers — we call it ice, and ice becomes a flower."',
+    'ft.zh':'In a Danzhai dye workshop, Grandmother melts beeswax in a small copper pot. The wax knife draws lines on white cloth — however steady the hand, fine cracks always appear in the indigo vat. The Miao call them "ice patterns": where the wax breaks, blue seeps in, and a flower no one predicted begins to bloom.',
+    'ft.keylabel':'Tell it in three sentences',
+    'ft.k1':'"Wax is drawn before dye ever touches the cloth."',
+    'ft.k2':'"The cracks are not mistakes — they are ice patterns."',
+    'ft.k3':'"Where the wax breaks, a flower of blue begins."',
+    'mo.eyebrow':'Guizhou Journal','mo.title':'More Stories',
+    'mo.sub':'One local product, one bilingual story — readable, tellable, deliverable.',
+    'mo.s1':'Thirty Days of Red Sour Soup','mo.s1d':'It takes thirty days of fermenting tomatoes for this sourness — no vinegar, only time.',
+    'mo.s2':'The Weight of a Silver Crown','mo.s2d':'A full silver crown can weigh over five kilograms — the heavier, the richer the blessing.',
+    'mo.s3':'Why the Table Is So Long','mo.s3d':'Tables stretch beyond sight down the street — more guests, more honor for the village.',
+  }
+};
+renderChrome('story');
+initPage();
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>词卡收藏 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.cards-sec{padding:72px 40px 110px;background:var(--paper)}
+.hint{
+  font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink-3);
+  display:flex;align-items:center;gap:10px;margin-bottom:36px;
+}
+.hint i{color:var(--cinnabar)}
+.cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fcard{perspective:1200px;cursor:pointer}
+.fcard-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.1,.2,1);
+}
+.fcard.flipped .fcard-inner{transform:rotateY(180deg)}
+.fface{
+  position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:1px solid var(--line);background:var(--white);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.fface.front{position:relative;inset:auto}
+.fface.back{transform:rotateY(180deg);background:var(--indigo);border-color:var(--indigo);color:var(--white)}
+/* 正面 */
+.f-img{aspect-ratio:16/10;overflow:hidden;position:relative;flex-shrink:0}
+.f-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.f-tag{
+  position:absolute;top:10px;left:10px;z-index:1;
+  font-family:'Noto Serif SC',serif;font-size:11px;color:var(--white);
+  background:rgba(21,23,26,.55);border-radius:99px;padding:2px 10px;backdrop-filter:blur(2px);
+}
+.f-no{position:absolute;top:8px;right:12px;z-index:1;font-family:'Playfair Display',serif;font-style:italic;font-size:11px;color:rgba(255,255,255,.9);text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.f-body{padding:14px 16px 14px;display:flex;flex-direction:column;flex:1;min-height:0}
+.f-word{font-family:'Playfair Display',serif;font-weight:600;font-size:19px;color:var(--ink);line-height:1.15}
+.f-phon{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--cinnabar);margin-top:4px}
+.f-cnn{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--ink-2);margin-top:3px}
+.f-audio{margin-top:auto;padding-top:10px;font-family:'Noto Serif SC',serif;font-size:11px;color:var(--ink-3);display:inline-flex;align-items:center;gap:7px}
+.f-audio i{color:var(--cinnabar)}
+/* 背面 */
+.fface.back{padding:16px 17px 12px;flex-direction:column;gap:0}
+.back .b-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.back .b-chip{
+  font-family:'Noto Serif SC',serif;font-size:10px;letter-spacing:0.1em;
+  color:var(--white);border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:2px 10px;
+}
+.back .b-no{font-family:'Playfair Display',serif;font-style:italic;font-size:11px;color:rgba(255,255,255,.55)}
+.back .b-word{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;line-height:1.1}
+.back .b-phon{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:rgba(255,255,255,.75);margin-top:3px}
+.back .b-rule{height:1px;background:rgba(255,255,255,.22);margin:10px 0}
+.back small{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:5px}
+.back .spell{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.04em;line-height:1.55;color:rgba(255,255,255,.9)}
+.back .sent{font-family:'EB Garamond','Noto Serif SC',serif;font-size:12.5px;font-style:italic;line-height:1.55;color:rgba(255,255,255,.92);margin-top:10px}
+.back .sent-cn{font-family:'Noto Serif SC',serif;font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;line-height:1.55}
+.back .b-foot{
+  margin-top:auto;padding-top:9px;border-top:1px solid rgba(255,255,255,.22);
+  display:flex;align-items:center;gap:7px;
+  font-family:'Noto Serif SC',serif;font-size:10.5px;color:rgba(255,255,255,.65);
+}
+.back .b-foot i{color:#D9A441;font-size:11px}
+@media (max-width:1200px){.cards-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+@media (max-width:768px){.cards-sec{padding:48px 20px 72px}}
+@media (max-width:420px){
+  .cards-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .f-img{aspect-ratio:3/2}
+  .fface.back{padding:12px 13px 9px}
+  .back .b-head{margin-bottom:6px}
+  .back .b-word{font-size:16px}
+  .back .b-rule{margin:7px 0}
+  .back .spell{font-size:10px;line-height:1.45}
+  .back .sent{font-size:11px;line-height:1.45;margin-top:6px}
+  .back .sent-cn{font-size:10px;line-height:1.45}
+  .back .b-foot{padding-top:6px;font-size:9.5px}
+}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="cards-sec">
+    <div class="section-inner">
+      <div class="section-eyebrow" data-i18n="hd.eyebrow">Word Cards</div>
+      <h1 class="section-title" data-i18n="hd.title">词卡收藏</h1>
+      <p class="section-cn" data-i18n="hd.sub">正面音标与释义，背面拼写与例句。点击卡片翻转，易错词收进自己的词卡盒。</p>
+      <div class="hint"><i class="fa-solid fa-hand-pointer"></i><span data-i18n="hd.hint">点击卡片翻面 · 共 132 词条，以下为示例 12 张</span></div>
+      <div class="cards-grid" id="cards"></div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'hd.eyebrow':'黔志 · 词卡','hd.title':'词卡收藏',
+    'hd.sub':'正面音标与释义，背面拼写与例句。易错词自动收进你的词卡盒。',
+    'hd.hint':'点击卡片翻面 · 共 132 词条，以下为示例 12 张',
+    'card.audio':'点击听发音',
+    'card.box':'易错词 · 收进词卡盒',
+  },
+  en: {
+    'hd.eyebrow':'Guizhou Journal','hd.title':'Word Cards',
+    'hd.sub':'Phonetics on the front, spelling and sentences on the back. Tricky words go to your own card box.',
+    'hd.hint':'Tap a card to flip · 132 words in total, 12 samples shown',
+    'card.audio':'Tap to hear',
+    'card.box':'Tricky word · saved to your box',
+  }
+};
+
+const WORDS = [
+  { en:'batik', phon:'/bəˈtiːk/', cn:'n. 蜡染；蜡染布', tag:'非遗', img:'img/batik-cloth.jpg',
+    spell:'b · a · t · i · k', sent:'The crack lines in batik are called "ice patterns".', sc:'蜡染上的裂纹被称作「冰纹」。' },
+  { en:'embroidery', phon:'/ɪmˈbrɔɪdəri/', cn:'n. 刺绣；绣品', tag:'非遗', img:'img/embroidery.jpg',
+    spell:'e · m · b · r · o · i · d · e · r · y', sent:'Miao embroidery records the butterfly mother legend.', sc:'苗绣记录着蝴蝶妈妈的传说。' },
+  { en:'drum tower', phon:'/drʌm ˈtaʊə(r)/', cn:'n. 鼓楼', tag:'非遗', img:'img/drumtower.jpg',
+    spell:'d · r · u · m · t · o · w · e · r', sent:'The drum tower is built without a single nail.', sc:'鼓楼不用一颗钉子就能建成。' },
+  { en:'silver ornament', phon:'/ˈsɪlvə(r) ˈɔːnəmənt/', cn:'n. 银饰', tag:'非遗', img:'img/silver.jpg',
+    spell:'s · i · l · v · e · r', sent:'Her silver ornament chimes as she dances.', sc:'她跳舞时银饰叮当作响。' },
+  { en:'sour soup fish', phon:'/ˈsaʊə suːp fɪʃ/', cn:'n. 酸汤鱼', tag:'小吃', img:'img/soursoup.jpg',
+    spell:'s · o · u · r · s · o · u · p', sent:'Sour soup fish is the taste of Guizhou.', sc:'酸汤鱼是贵州的味道。' },
+  { en:'long table feast', phon:'/lɒŋ ˈteɪbl fiːst/', cn:'n. 长桌宴', tag:'民俗', img:'img/longtable.jpg',
+    spell:'l · o · n · g · t · a · b · l · e', sent:'A thousand guests share the long table feast.', sc:'上千位客人同吃一场长桌宴。' },
+  { en:'terraced fields', phon:'/ˈterəst fiːldz/', cn:'n. 梯田', tag:'景区', img:'img/ricefish.jpg',
+    spell:'t · e · r · r · a · c · e · d', sent:'Rice-field fish swim among the terraced fields.', sc:'稻花鱼就游在梯田之间。' },
+  { en:'lusheng', phon:'/ˈluːʃʌŋ/', cn:'n. 芦笙', tag:'非遗', img:'img/lusheng.jpg',
+    spell:'l · u · s · h · e · n · g', sent:'The lusheng leads the festival dance.', sc:'芦笙领起了节日的舞步。' },
+  { en:'oil tea', phon:'/ɔɪl tiː/', cn:'n. 油茶', tag:'小吃', img:'img/youcha.jpg',
+    spell:'o · i · l · t · e · a', sent:'Dong people drink oil tea every morning.', sc:'侗家人每天清早都要打油茶。' },
+  { en:'rice wine', phon:'/raɪs waɪn/', cn:'n. 米酒', tag:'小吃', img:'img/mijiu.jpg',
+    spell:'r · i · c · e · w · i · n · e', sent:'Rice wine toasts echo through the village.', sc:'敬米酒的歌声回荡在寨子里。' },
+  { en:'wind-rain bridge', phon:'/wɪnd reɪn brɪdʒ/', cn:'n. 风雨桥', tag:'景区', img:'img/drumtower-night.jpg',
+    spell:'w · i · n · d · r · a · i · n', sent:'The wind-rain bridge shelters travelers from storms.', sc:'风雨桥为行人遮风挡雨。' },
+  { en:'sisters festival', phon:'/ˈsɪstəz ˈfestɪvl/', cn:'n. 姊妹节', tag:'民俗', img:'img/sisters.jpg',
+    spell:'s · i · s · t · e · r · s', sent:'Sisters festival is the sweetest day in Taijiang.', sc:'姊妹节是台江最甜蜜的节日。' },
+];
+
+function build(){
+  const wrap = document.getElementById('cards');
+  WORDS.forEach((w, idx) => {
+    const el = document.createElement('div');
+    el.className = 'fcard';
+    el.innerHTML = `<div class="fcard-inner">
+      <div class="fface front">
+        <div class="f-img"><span class="f-tag">${w.tag}</span><span class="f-no">No.${String(idx+1).padStart(2,'0')}</span><img src="${w.img}" alt="${w.en}" loading="lazy"></div>
+        <div class="f-body">
+          <div class="f-word">${w.en}</div>
+          <div class="f-phon">${w.phon}</div>
+          <div class="f-cnn">${w.cn}</div>
+          <span class="f-audio"><i class="fa-solid fa-volume-high"></i><span data-i18n="card.audio">点击听发音</span></span>
+        </div>
+      </div>
+      <div class="fface back">
+        <div class="b-head"><span class="b-chip">${w.tag}</span><span class="b-no">No.${String(idx+1).padStart(2,'0')}</span></div>
+        <div class="b-word">${w.en}</div>
+        <div class="b-phon">${w.phon}</div>
+        <div class="b-rule"></div>
+        <small>Spelling</small>
+        <div class="spell">${w.spell}</div>
+        <div class="sent">"${w.sent}"</div>
+        <div class="sent-cn">${w.sc}</div>
+        <div class="b-foot"><i class="fa-solid fa-box-archive"></i><span data-i18n="card.box">易错词 · 收进词卡盒</span></div>
+      </div></div>`;
+    el.addEventListener('click', () => el.classList.toggle('flipped'));
+    wrap.appendChild(el);
+  });
+}
+build();
+renderChrome('cards');
+initPage();
+</script>
+</body>
+</html>

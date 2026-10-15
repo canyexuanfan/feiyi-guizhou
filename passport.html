@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>集章护照 | Rita · 贵州非遗故事集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.passport-wrap{padding:88px 40px 120px;background:var(--paper)}
+.book{
+  border:1px solid var(--line);background:var(--white);
+  max-width:1180px;margin:0 auto;
+}
+.book-cover{
+  background:linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 70%);
+  color:var(--white);padding:44px 48px;
+  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
+}
+.book-mark{
+  width:72px;height:72px;border:2px solid var(--cinnabar);
+  display:grid;place-items:center;flex-shrink:0;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:30px;color:var(--cinnabar-soft);
+  transform:rotate(-4deg);
+}
+.book-title{font-family:'Noto Serif SC',serif;font-weight:700;font-size:26px;letter-spacing:0.06em}
+.book-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,.6);margin-top:6px}
+.book-progress{margin-left:auto;text-align:right;min-width:220px}
+.book-progress-n{font-family:'Playfair Display',serif;font-size:40px;font-weight:500;line-height:1}
+.book-progress-n small{font-size:16px;color:rgba(255,255,255,.55);font-style:italic}
+.bar{width:220px;height:4px;background:rgba(255,255,255,.18);margin-top:12px}
+.bar i{display:block;height:100%;background:var(--cinnabar);width:0;transition:width .8s ease}
+.book-body{padding:48px}
+.pp-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:18px}
+.pp-stamp{
+  aspect-ratio:1;border-radius:50%;position:relative;overflow:hidden;
+  border:1.5px solid var(--line);display:grid;place-items:center;
+  background-size:cover;background-position:center;
+  cursor:pointer;transition:transform .25s;
+}
+.pp-stamp:hover{transform:translateY(-3px) rotate(2deg)}
+.pp-stamp .nm{
+  position:relative;z-index:1;text-align:center;
+  font-family:'Noto Serif SC',serif;font-weight:600;font-size:11px;
+  line-height:1.2;padding:4px;
+}
+.pp-stamp .no{
+  position:absolute;top:5px;right:9px;z-index:1;
+  font-family:'Playfair Display',serif;font-style:italic;font-size:9px;
+}
+.pp-stamp.earned{border-color:var(--cinnabar);box-shadow:0 2px 10px rgba(184,53,44,.3)}
+.pp-stamp.earned::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:linear-gradient(180deg, rgba(184,53,44,.42), rgba(120,30,20,.62));
+}
+.pp-stamp.earned .nm,.pp-stamp.earned .no{color:var(--white);text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.pp-stamp.pending{border-style:dashed;opacity:.6;filter:grayscale(.7)}
+.pp-stamp.pending .nm{color:var(--ink-3);text-shadow:none}
+.pp-stamp.pending .no{color:rgba(0,0,0,.25)}
+.pp-note{
+  margin-top:40px;padding-top:28px;border-top:1px solid var(--line);
+  font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink-3);
+  display:flex;gap:14px;align-items:flex-start;line-height:1.9;
+}
+.pp-note i{color:var(--cinnabar);margin-top:5px}
+.offline{max-width:1180px;margin:64px auto 0}
+.offline h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--ink);margin-bottom:20px}
+.offline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.off{
+  border:1px solid var(--line);background:var(--white);
+  padding:22px 24px;display:flex;gap:16px;align-items:flex-start;
+}
+.off i{color:var(--cinnabar);font-size:16px;margin-top:4px}
+.off b{font-family:'Noto Serif SC',serif;font-size:14.5px;color:var(--ink);display:block;margin-bottom:4px}
+.off span{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--ink-3);line-height:1.7}
+@media (max-width:1080px){.pp-grid{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:768px){
+  .passport-wrap{padding:56px 20px 80px}
+  .book-body{padding:28px 20px}
+  .pp-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+  .book-cover{padding:28px 22px}
+  .book-progress{margin-left:0;text-align:left}
+  .offline-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-topbar"></header>
+<main>
+  <section class="passport-wrap">
+    <div class="book">
+      <div class="book-cover">
+        <div class="book-mark">R</div>
+        <div>
+          <div class="book-title" data-i18n="bk.title">贵州非遗 · 集章护照</div>
+          <div class="book-sub" data-i18n="bk.sub">Guizhou Heritage Passport · 40 Stamps</div>
+        </div>
+        <div class="book-progress">
+          <div class="book-progress-n" id="pp-n">0<small>  / 40</small></div>
+          <div class="bar"><i id="pp-bar"></i></div>
+        </div>
+      </div>
+      <div class="book-body">
+        <div class="pp-grid" id="pp-grid"></div>
+        <div class="pp-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <span data-i18n="bk.note">已集 3 枚示例章。线上通过词汇、对话、翻译三关即可点亮一枚；线下合作景区与门店扫码同样可以集章 —— 线上进度与线下印章共同计入这本护照。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="offline">
+      <h3 data-i18n="off.title">线下集章点 · Stamp Spots</h3>
+      <div class="offline-grid">
+        <div class="off">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><b data-i18n="off.p1">西江千户苗寨 · 北门游客中心</b><span data-i18n="off.d1">门票核销处扫码盖章，含苗寨主题词汇包。</span></div>
+        </div>
+        <div class="off">
+          <i class="fa-solid fa-store"></i>
+          <div><b data-i18n="off.p2">丹寨蜡染工坊 · 非遗门店</b><span data-i18n="off.d2">体验画蜡 30 分钟以上，解锁蜡染主题章。</span></div>
+        </div>
+        <div class="off">
+          <i class="fa-solid fa-landmark"></i>
+          <div><b data-i18n="off.p3">肇兴侗寨 · 鼓楼广场</b><span data-i18n="off.d3">晚间大歌演出前 1 小时限时章「侗族大歌」。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+window.PAGE_I18N = {
+  zh: {
+    'bk.title':'贵州非遗 · 集章护照','bk.sub':'Guizhou Heritage Passport · 40 Stamps',
+    'bk.note':'已集 3 枚示例章。线上通过词汇、对话、翻译三关即可点亮一枚；线下合作景区与门店扫码同样可以集章 —— 线上进度与线下印章共同计入这本护照。',
+    'off.title':'线下集章点 · Stamp Spots',
+    'off.p1':'西江千户苗寨 · 北门游客中心','off.d1':'门票核销处扫码盖章，含苗寨主题词汇包。',
+    'off.p2':'丹寨蜡染工坊 · 非遗门店','off.d2':'体验画蜡 30 分钟以上，解锁蜡染主题章。',
+    'off.p3':'肇兴侗寨 · 鼓楼广场','off.d3':'晚间大歌演出前 1 小时限时章「侗族大歌」。',
+  },
+  en: {
+    'bk.title':'Guizhou Heritage Passport','bk.sub':'Guizhou Heritage Passport · 40 Stamps',
+    'bk.note':'Three sample stamps collected. Clear vocabulary, dialogue and translation online to light a stamp — or scan at partner scenic spots and shops. Online progress and offline seals share one passport.',
+    'off.title':'Offline Stamp Spots',
+    'off.p1':'Xijiang · North Gate Visitor Center','off.d1':'Scan at ticket validation for the Miao Village vocabulary pack.',
+    'off.p2':'Danzhai Batik Workshop','off.d2':'Try wax-drawing for 30 minutes to unlock the Batik stamp.',
+    'off.p3':'Zhaoxing · Drum Tower Square','off.d3':'Limited Grand Song stamp, 1 hour before the evening show.',
+  }
+};
+
+const EARNED_IDS = [1, 2, 3];  /* 示例：已集 3 枚 */
+function build(){
+  const grid = document.getElementById('pp-grid');
+  THEMES.forEach((t, i) => {
+    const earned = EARNED_IDS.includes(t.id);
+    const el = document.createElement('div');
+    el.className = 'pp-stamp ' + (earned ? 'earned' : 'pending');
+    if (t.img) el.style.backgroundImage = `url('${t.img}')`;
+    el.title = t.en;
+    el.innerHTML = `<span class="no">${String(i+1).padStart(2,'0')}</span><span class="nm">${t.cn}</span>`;
+    grid.appendChild(el);
+  });
+  document.getElementById('pp-n').innerHTML = `${EARNED_IDS.length}<small>  / 40</small>`;
+  setTimeout(()=>{ document.getElementById('pp-bar').style.width = (EARNED_IDS.length/40*100).toFixed(1) + '%'; }, 300);
+}
+build();
+renderChrome('passport');
+initPage();
+</script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rita · 贵州非遗故事集 | Rita's Heritage Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fa/all.min.css">
+<link rel="stylesheet" href="assets/main.css">
+<style>
+/* =========================================================
+   HOME · HERO
+========================================================= */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:var(--paper);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('img/hero.jpg');
+  background-size:cover;
+  background-position:center 55%;
+  filter:saturate(0.85) contrast(1.05);
+  opacity:0.55;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(95deg,
+    rgba(242,239,231,.95) 0%,
+    rgba(242,239,231,.78) 35%,
+    rgba(242,239,231,.30) 65%,
+    rgba(242,239,231,.15) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1480px;margin:0 auto;
+  width:100%;
+  padding:60px 40px 80px;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.hero-text{max-width:680px}
+.hero-eyebrow{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:15px;
+  color:var(--cinnabar);
+  letter-spacing:0.02em;
+  margin-bottom:28px;
+  display:inline-flex;align-items:center;gap:14px;
+}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--cinnabar)}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-size:clamp(44px,5.6vw,82px);
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  margin-bottom:32px;
+}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--indigo)}
+.hero-cn{
+  font-family:'Noto Serif SC',serif;
+  font-size:18px;font-weight:400;
+  line-height:1.95;
+  color:var(--ink-2);
+  margin-bottom:44px;
+  max-width:520px;
+}
+.hero-stats{
+  display:flex;gap:0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-bottom:40px;
+  padding:18px 0;
+}
+.hero-stat{flex:1;display:flex;flex-direction:column;gap:4px;padding:0 20px;border-right:1px solid var(--line)}
+.hero-stat:first-child{padding-left:0}
+.hero-stat:last-child{border-right:none}
+.hero-stat-n{font-family:'Playfair Display',serif;font-weight:500;font-size:34px;color:var(--cinnabar);line-height:1}
+.hero-stat-l{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:11.5px;
+  color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase;
+}
+.hero-cta{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.hero-aside{
+  position:relative;z-index:2;
+  max-width:420px;justify-self:end;
+  padding:32px;
+  background:rgba(255,255,255,.65);
+  border:1px solid var(--line);
+  backdrop-filter:blur(8px);
+}
+.hero-aside-mark{
+  width:54px;height:54px;
+  background:var(--indigo);color:var(--white);
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:24px;
+  display:grid;place-items:center;
+  margin-bottom:18px;
+}
+.hero-aside blockquote{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:18px;
+  line-height:1.55;color:var(--ink);margin-bottom:14px;
+}
+.hero-aside cite{
+  font-family:'Noto Serif SC',serif;
+  font-size:12px;font-style:normal;
+  color:var(--ink-3);display:block;letter-spacing:0.04em;
+}
+
+/* =========================================================
+   HOME · THREE THREADS
+========================================================= */
+.threads{padding:120px 40px;background:var(--white);border-top:1px solid var(--line)}
+.threads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.thread{padding:48px 40px 48px 0;border-right:1px solid var(--line)}
+.thread:last-child{border-right:none;padding-right:0}
+.thread:nth-child(2),.thread:nth-child(3){padding-left:40px}
+.thread-num{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--bronze);letter-spacing:0.12em;margin-bottom:32px}
+.thread-pattern{
+  width:100%;aspect-ratio:1;max-width:240px;
+  margin-bottom:36px;display:grid;place-items:center;
+  background:var(--paper);border:1px solid var(--line);
+}
+.thread-pattern img{width:100%;height:100%;object-fit:cover;display:block}
+.thread-en{font-family:'Playfair Display',serif;font-weight:500;font-size:32px;font-style:italic;color:var(--ink);line-height:1;margin-bottom:8px}
+.thread-cn{font-family:'Noto Serif SC',serif;font-weight:600;font-size:20px;color:var(--ink);margin-bottom:18px}
+.thread-rule{width:36px;height:2px;background:var(--cinnabar);margin-bottom:20px}
+.thread-desc{font-family:'Noto Serif SC',serif;font-size:14px;line-height:1.95;color:var(--ink-2)}
+
+/* =========================================================
+   HOME · FIELD NOTES（田野图集）
+========================================================= */
+.notes{padding:120px 40px;background:var(--paper);border-top:1px solid var(--line)}
+.notes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.note{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:pointer;background:var(--paper-2);display:block}
+.note img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.9);
+  transition:transform .6s ease, filter .4s;
+}
+.note:hover img{transform:scale(1.05);filter:saturate(1.05)}
+.note-cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:44px 18px 16px;
+  background:linear-gradient(180deg, rgba(17,32,58,0) 0%, rgba(17,32,58,.78) 100%);
+  color:var(--white);
+}
+.note-cap small{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:11px;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);margin-bottom:4px;
+}
+.note-cap strong{
+  font-family:'Noto Serif SC',serif;
+  font-weight:600;font-size:15px;letter-spacing:0.02em;
+}
+.note-no{
+  position:absolute;top:14px;left:16px;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:13px;
+  color:rgba(255,255,255,.85);
+  text-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+
+/* =========================================================
+   HOME · 40 STAMPS
+========================================================= */
+.stamps{padding:120px 40px;background:var(--white);border-top:1px solid var(--line)}
+.quests{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+  border:1px solid var(--line);background:var(--paper);
+  margin-bottom:80px;
+}
+.quest-steps{padding:48px 44px}
+.quest-steps h3{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:500;
+  font-size:24px;color:var(--ink);margin-bottom:32px;
+}
+.quest-step{display:flex;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.quest-step:last-child{border-bottom:1px solid var(--line)}
+.quest-n{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:36px;color:var(--cinnabar);line-height:1;width:48px;flex-shrink:0}
+.quest-body{flex:1;padding-top:4px}
+.quest-title{font-family:'Playfair Display',serif;font-weight:500;font-size:19px;color:var(--ink);margin-bottom:4px}
+.quest-cn{font-family:'Noto Serif SC',serif;font-size:13.5px;color:var(--ink-3);line-height:1.6}
+.quest-demo{
+  padding:48px 40px;
+  background:
+    linear-gradient(135deg, rgba(17,32,58,.80) 0%, rgba(31,58,95,.64) 100%),
+    url('img/drumtower-night.jpg') center/cover no-repeat;
+  color:var(--white);
+  display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.quest-demo::after{
+  content:"XIJIANG";
+  position:absolute;right:-30px;bottom:-50px;
+  font-family:'Playfair Display',serif;
+  font-weight:700;font-size:140px;
+  color:rgba(255,255,255,.06);
+  line-height:1;font-style:italic;letter-spacing:0.04em;
+  pointer-events:none;
+}
+.quest-demo-label{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:13px;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:24px;
+}
+.quest-demo-seal{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;
+  border:1.5px solid var(--cinnabar);
+  color:var(--cinnabar-soft);
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:12px;letter-spacing:0.1em;
+  margin-bottom:18px;
+}
+.quest-demo-name{font-family:'Noto Serif SC',serif;font-weight:700;font-size:24px;color:var(--white);margin-bottom:6px}
+.quest-demo-en{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,.65);margin-bottom:32px}
+.quest-demo .seal-btn{background:transparent;color:var(--white);border-color:var(--white);font-size:14px;padding:11px 26px;box-shadow:none}
+.quest-demo .seal-btn:hover{background:var(--white);color:var(--indigo);box-shadow:none}
+.stamp-section-title{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:14px;
+  color:var(--ink-3);letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:32px;
+}
+.stamp-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:16px;margin-bottom:56px}
+.stamps-cta{text-align:center}
+
+/* RESPONSIVE */
+@media (max-width:1080px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-aside{max-width:none;justify-self:stretch}
+  .threads-grid{grid-template-columns:1fr}
+  .thread{padding:32px 0!important;border-right:none!important;border-bottom:1px solid var(--line)}
+  .thread:last-child{border-bottom:none}
+  .quests{grid-template-columns:1fr}
+  .stamp-grid{grid-template-columns:repeat(4,1fr)}
+  .notes-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+  .hero{min-height:auto;padding:40px 0 60px}
+  .hero-inner{padding:32px 20px 48px;gap:32px}
+  .hero-stats{flex-wrap:wrap}
+  .hero-stat{flex:0 0 50%;padding:8px 12px;border-right:none;border-bottom:1px solid var(--line)}
+  .hero-stat:nth-child(odd){border-right:1px solid var(--line)}
+  .hero-stat:nth-last-child(-n+2){border-bottom:none}
+  .threads,.stamps,.notes{padding:64px 20px}
+  .thread{padding:32px 0}
+  .quest-steps,.quest-demo{padding:32px 24px}
+  .stamp-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+}
+/* =========================================================
+   HOME · LEARNING PATH（学习主线三步走）
+========================================================= */
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px}
+.path-card{border:1px solid var(--line);background:var(--white);padding:30px;display:flex;flex-direction:column;gap:12px;position:relative}
+.path-card .p-step{font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--cinnabar);letter-spacing:0.08em}
+.path-card .p-icon{width:56px;height:56px;border-radius:50%;overflow:hidden;border:1px solid var(--line)}
+.path-card .p-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.path-card b{font-family:'Noto Serif SC',serif;font-size:17px;font-weight:600;color:var(--ink)}
+.path-card i{font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--ink-3)}
+.path-card p{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--ink-2);line-height:1.8;margin:0;flex:1}
+.path-card a{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--cinnabar);text-decoration:none;letter-spacing:0.05em}
+.path-card a:hover{text-decoration:underline}
+.path-report{
+  margin-top:24px;border:1px solid var(--line);background:var(--white);padding:22px 30px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.path-report .fa-solid{font-size:20px;color:var(--indigo)}
+.path-report p{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--ink-2);margin:0;flex:1;line-height:1.8;min-width:240px}
+.path-report a{font-family:'Noto Serif SC',serif;font-size:12.5px;color:var(--cinnabar);text-decoration:none;white-space:nowrap}
+.path-report a:hover{text-decoration:underline}
+@media (max-width:900px){.path-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="site-topbar"></header>
+
+<main>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">A Bilingual Heritage Journal</div>
+      <h1 data-i18n="hero.h1">Learn to tell<br>a Guizhou story,<br>in <em>English.</em></h1>
+      <p class="hero-cn" data-i18n="hero.cn">跟着 Rita 走进贵州山间，选一个主题学三句英语，盖一枚章。集满 40 枚，就是一本属于你的贵州非遗护照。</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-n">40</span><span class="hero-stat-l" data-i18n="hero.stat1">Themes</span></div>
+        <div class="hero-stat"><span class="hero-stat-n">4</span><span class="hero-stat-l" data-i18n="hero.stat2">Chapters</span></div>
+        <div class="hero-stat"><span class="hero-stat-n">3</span><span class="hero-stat-l" data-i18n="hero.stat3">Quests</span></div>
+        <div class="hero-stat"><span class="hero-stat-n">1</span><span class="hero-stat-l" data-i18n="hero.stat4">Passport</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="map.html" class="seal-btn"><span data-i18n="hero.cta1">Begin the Quest</span></a>
+        <a href="#stamps" class="line-btn" data-i18n="hero.cta2">See the 40 stamps</a>
+      </div>
+    </div>
+    <aside class="hero-aside">
+      <div class="hero-aside-mark">R</div>
+      <blockquote data-i18n="hero.quote">"A stitch, a stamp, a sentence in a foreign tongue — that is how heritage crosses borders."</blockquote>
+      <cite data-i18n="hero.quote-cite">— Rita, in the mountain village of Xijiang</cite>
+    </aside>
+  </div>
+</section>
+
+<!-- ==================== THREE THREADS ==================== -->
+<section class="threads">
+  <div class="section-inner">
+    <div class="section-eyebrow" data-i18n="threads.eyebrow">The Three Threads</div>
+    <h2 class="section-title" data-i18n="threads.title">黔 · 三条线</h2>
+    <p class="section-cn" data-i18n="threads.sub">苗绣几何、蜡染冰裂、侗族鼓楼 —— 贵州非遗里最有视觉辨识度的三种工艺，也是 Rita 带你去看的第一道风景。</p>
+    <div class="threads-grid">
+      <div class="thread">
+        <div class="thread-num">No. 01</div>
+        <div class="thread-pattern">
+          <img src="img/embroidery.jpg" alt="苗绣">
+        </div>
+        <div class="thread-en">Embroidery</div>
+        <div class="thread-cn">苗 · 绣</div>
+        <div class="thread-rule"></div>
+        <p class="thread-desc" data-i18n="threads.t1">600 年几何纹样，从蝴蝶到鱼龙。苗族把族群记忆绣进每一针 —— Rita 在第一个主题里就带你认 12 个针法名词。</p>
+      </div>
+      <div class="thread">
+        <div class="thread-num">No. 02</div>
+        <div class="thread-pattern">
+          <img src="img/batik.jpg" alt="蜡染">
+        </div>
+        <div class="thread-en">Batik</div>
+        <div class="thread-cn">蜡 · 染</div>
+        <div class="thread-rule"></div>
+        <p class="thread-desc" data-i18n="threads.t2">唐代至今的蓝白哲学。蜂蜡裂痕即冰，冰即花 —— 蜡染不是染出来的，是"留白"出来的。</p>
+      </div>
+      <div class="thread">
+        <div class="thread-num">No. 03</div>
+        <div class="thread-pattern">
+          <img src="img/drumtower.jpg" alt="侗族鼓楼">
+        </div>
+        <div class="thread-en">Drum Tower</div>
+        <div class="thread-cn">侗 · 鼓</div>
+        <div class="thread-rule"></div>
+        <p class="thread-desc" data-i18n="threads.t3">侗寨之心。不用一钉一铆，全靠榫卯 —— 一座鼓楼立起来，整个村寨就有了"广场"。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FIELD NOTES ==================== -->
+<section class="notes">
+  <div class="section-inner">
+    <div class="section-eyebrow" data-i18n="notes.eyebrow">Field Notes</div>
+    <h2 class="section-title" data-i18n="notes.title">田野 · 四个瞬间</h2>
+    <p class="section-cn" data-i18n="notes.sub">蜡刀起落、银冠叮当、长桌摆开、大歌起调 —— 这些画面，就是你将要学会讲述的故事。</p>
+    <div class="notes-grid" id="notes-grid"></div>
+  </div>
+</section>
+
+<!-- ==================== LEARNING PATH ==================== -->
+<section class="path-sec">
+  <div class="section-inner">
+    <div class="section-eyebrow" data-i18n="path.eyebrow">The Learning Path</div>
+    <h2 class="section-title" data-i18n="path.title">学习主线 · 三步走</h2>
+    <p class="section-cn" data-i18n="path.sub">闯关地图给「推进感」，集章护照做「主载体」，赛季打卡定「节奏」—— 三件事各司其职，学习才走得远。</p>
+    <div class="path-grid">
+      <div class="path-card">
+        <div class="p-step" data-i18n="path.s1">01 · 骨架 The Skeleton</div>
+        <div class="p-icon"><img src="img/xijiang.jpg" alt="闯关地图"></div>
+        <b data-i18n="path.t1">闯关地图</b><i>Quest Map</i>
+        <p data-i18n="path.d1">四大章节、主题逐个解锁。每通一关点亮一个节点，给学习一个「推进感」。</p>
+        <a href="map.html" data-i18n="path.go">进入地图</a>
+      </div>
+      <div class="path-card">
+        <div class="p-step" data-i18n="path.s2">02 · 主载体 The Passport</div>
+        <div class="p-icon"><img src="img/silver.jpg" alt="集章护照"></div>
+        <b data-i18n="path.t2">集章护照</b><i>Stamp Passport</i>
+        <p data-i18n="path.d2">40 主题 = 40 枚章，集齐即「贵州非遗护照」，可对接景区与门店的线下集章点。</p>
+        <a href="passport.html" data-i18n="path.go2">翻开护照</a>
+      </div>
+      <div class="path-card">
+        <div class="p-step" data-i18n="path.s3">03 · 节奏 The Rhythm</div>
+        <div class="p-icon"><img src="img/longtable.jpg" alt="赛季打卡"></div>
+        <b data-i18n="path.t3">赛季打卡</b><i>Season Check-in</i>
+        <p data-i18n="path.d3">14 天一赛季、24 期/年，连续打卡解锁阶梯积分，对齐进校双周课时包。</p>
+        <a href="checkin.html" data-i18n="path.go3">去看赛季</a>
+      </div>
+    </div>
+    <div class="path-report">
+      <i class="fa-solid fa-chart-column"></i>
+      <p data-i18n="path.rep">成效报告：掌握度、学习轨迹、待强化词与自动建议，一页可打印，面向学校与家长交付。</p>
+      <a href="report.html" data-i18n="path.repGo">查看示例报告</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 40 STAMPS ==================== -->
+<section class="stamps" id="stamps">
+  <div class="section-inner">
+    <div class="section-eyebrow" data-i18n="stamps.eyebrow">The 40 Stamps</div>
+    <h2 class="section-title" data-i18n="stamps.title">40 枚章 · 一本贵州护照</h2>
+    <p class="section-cn" data-i18n="stamps.sub">三关闯过，AI 实时纠错，章戳入册。下面是你会拿到的前八枚 —— 完整 40 枚在地图上等你。</p>
+
+    <div class="quests">
+      <div class="quest-steps">
+        <h3 data-i18n="stamps.h3">闯关流程 · How the quest works</h3>
+        <div class="quest-step">
+          <span class="quest-n">I</span>
+          <div class="quest-body">
+            <div class="quest-title">Vocabulary</div>
+            <div class="quest-cn">词汇 · 听词、认词、读音、拼写</div>
+          </div>
+        </div>
+        <div class="quest-step">
+          <span class="quest-n">II</span>
+          <div class="quest-body">
+            <div class="quest-title">Dialogue</div>
+            <div class="quest-cn">对话 · 场景英语，开口敢说</div>
+          </div>
+        </div>
+        <div class="quest-step">
+          <span class="quest-n">III</span>
+          <div class="quest-body">
+            <div class="quest-title">Translation</div>
+            <div class="quest-cn">翻译 · 中译英、英译中，AI 评分</div>
+          </div>
+        </div>
+      </div>
+      <div class="quest-demo">
+        <div class="quest-demo-label" data-i18n="stamps.demoLabel">Featured · No. 01</div>
+        <div class="quest-demo-seal">XIJIANG · 黔东南</div>
+        <div class="quest-demo-name">西江千户苗寨</div>
+        <div class="quest-demo-en">Xijiang Qianhu Miao Village</div>
+        <a href="map.html" class="seal-btn"><span data-i18n="stamps.demoCta">Try this stamp</span></a>
+      </div>
+    </div>
+
+    <div class="stamp-section-title" data-i18n="stamps.gridLabel">First 8 of 40 Stamps</div>
+    <div class="stamp-grid" id="stamp-grid"></div>
+    <div class="stamps-cta">
+      <a href="map.html" class="seal-btn"><span data-i18n="stamps.cta">See all 40 stamps on the map</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" id="site-footer"></footer>
+
+<script src="assets/main.js"></script>
+<script>
+/* 田野图集 */
+const NOTES = [
+  { img:'img/batik.jpg',     no:'No.01', en:'Wax & Indigo',  cn:'蜡刀与靛蓝 · 丹寨' },
+  { img:'img/festival.jpg',  no:'No.02', en:'Silver Season', cn:'盛装银冠 · 丹江节庆' },
+  { img:'img/longtable.jpg', no:'No.03', en:'Long Table',    cn:'长桌宴 · 西江暮色' },
+  { img:'img/drumtower.jpg', no:'No.04', en:'Drum Towers',   cn:'鼓楼群 · 肇兴' },
+];
+const notesGrid = document.getElementById('notes-grid');
+NOTES.forEach(n => {
+  const el = document.createElement('a');
+  el.className = 'note'; el.href = 'story.html';
+  el.innerHTML = `<img src="${n.img}" alt="${n.cn}">
+    <span class="note-no">${n.no}</span>
+    <div class="note-cap"><small>${n.en}</small><strong>${n.cn}</strong></div>`;
+  notesGrid.appendChild(el);
+});
+
+/* 首页 8 枚章预览 */
+const grid = document.getElementById('stamp-grid');
+THEMES.slice(0, 8).forEach((t, i) => {
+  const wrap = document.createElement('div');
+  wrap.innerHTML = stampHTML(t, i, true);
+  grid.appendChild(wrap.firstElementChild);
+});
+
+/* 页面级双语 */
+window.PAGE_I18N = {
+  zh: {
+    'hero.eyebrow':'黔志 · 双语非遗',
+    'hero.h1':'Learn to tell<br>a Guizhou story,<br>in <em>English.</em>',
+    'hero.cn':'跟着 Rita 走进贵州山间，选一个主题学三句英语，盖一枚章。集满 40 枚，就是一本属于你的贵州非遗护照。',
+    'hero.stat1':'主题','hero.stat2':'章节','hero.stat3':'关卡','hero.stat4':'护照',
+    'hero.cta1':'开始闯关','hero.cta2':'看 40 枚章',
+    'hero.quote':'"一针、一印、一句外语 —— 这是非遗越境的方式。"',
+    'hero.quote-cite':'—— Rita · 西江苗寨',
+    'threads.eyebrow':'黔 · 三线','threads.title':'黔 · 三条线',
+    'threads.sub':'苗绣几何、蜡染冰裂、侗族鼓楼 —— 贵州非遗里最有视觉辨识度的三种工艺，也是 Rita 带你去看的第一道风景。',
+    'threads.t1':'600 年几何纹样，从蝴蝶到鱼龙。苗族把族群记忆绣进每一针 —— Rita 在第一个主题里就带你认 12 个针法名词。',
+    'threads.t2':'唐代至今的蓝白哲学。蜂蜡裂痕即冰，冰即花 —— 蜡染不是染出来的，是"留白"出来的。',
+    'threads.t3':'侗寨之心。不用一钉一铆，全靠榫卯 —— 一座鼓楼立起来，整个村寨就有了"广场"。',
+    'notes.eyebrow':'田野笔记','notes.title':'田野 · 四个瞬间',
+    'notes.sub':'蜡刀起落、银冠叮当、长桌摆开、大歌起调 —— 这些画面，就是你将要学会讲述的故事。',
+    'stamps.eyebrow':'黔志 · 40 枚','stamps.title':'40 枚章 · 一本贵州护照',
+    'stamps.sub':'三关闯过，AI 实时纠错，章戳入册。下面是你会拿到的前八枚 —— 完整 40 枚在地图上等你。',
+    'stamps.h3':'闯关流程','stamps.demoLabel':'首推 · 黔东南','stamps.demoCta':'试试这枚章',
+    'stamps.gridLabel':'40 枚里的前 8 枚','stamps.cta':'去闯关地图看全部 40 枚',
+    'path.eyebrow':'黔志 · 主线','path.title':'学习主线 · 三步走',
+    'path.sub':'闯关地图给「推进感」，集章护照做「主载体」，赛季打卡定「节奏」—— 三件事各司其职，学习才走得远。',
+    'path.s1':'01 · 骨架','path.t1':'闯关地图','path.d1':'四大章节、主题逐个解锁。每通一关点亮一个节点，给学习一个「推进感」。','path.go':'进入地图',
+    'path.s2':'02 · 主载体','path.t2':'集章护照','path.d2':'40 主题 = 40 枚章，集齐即「贵州非遗护照」，可对接景区与门店的线下集章点。','path.go2':'翻看护照',
+    'path.s3':'03 · 节奏','path.t3':'赛季打卡','path.d3':'14 天一赛季、24 期/年，连续打卡解锁阶梯积分，对齐进校双周课时包。','path.go3':'去看赛季',
+    'path.rep':'成效报告：掌握度、学习轨迹、待强化词与自动建议，一页可打印，面向学校与家长交付。','path.repGo':'查看示例报告',
+  },
+  en: {
+    'hero.eyebrow':'A Bilingual Heritage Journal',
+    'hero.h1':'Learn to tell<br>a Guizhou story,<br>in <em>English.</em>',
+    'hero.cn':'Step into the mountain villages of Guizhou with Rita. One theme, three sentences, one stamp. Collect all 40 — and the land is yours.',
+    'hero.stat1':'Themes','hero.stat2':'Chapters','hero.stat3':'Quests','hero.stat4':'Passport',
+    'hero.cta1':'Begin the Quest','hero.cta2':'See the 40 stamps',
+    'hero.quote':'"A stitch, a stamp, a sentence in a foreign tongue — that is how heritage crosses borders."',
+    'hero.quote-cite':'— Rita, in the mountain village of Xijiang',
+    'threads.eyebrow':'The Three Threads','threads.title':'Three Threads, One Land',
+    'threads.sub':'Embroidery, batik, and the drum tower — the three most visually distinctive crafts of Guizhou heritage, and the first things Rita shows you.',
+    'threads.t1':'600 years of geometric patterns, from butterfly to fish-dragon. Every stitch carries Miao memory — Rita teaches you twelve stitch-names in your first theme.',
+    'threads.t2':'A blue-and-white philosophy since the Tang dynasty. Beeswax cracks become ice, ice becomes flower — batik is not dyed, it is "left white".',
+    'threads.t3':'The heart of every Dong village. No nails, no screws — only joinery. When the drum tower rises, the village gains a square.',
+    'notes.eyebrow':'Field Notes','notes.title':'Four Moments in the Field',
+    'notes.sub':'Wax lines, silver chimes, long tables, grand-song harmonies — the scenes you will learn to tell in English.',
+    'stamps.eyebrow':'The 40 Stamps','stamps.title':'40 Stamps, One Guizhou Passport',
+    'stamps.sub':'Three quests, real-time AI feedback, the stamp joins your passport. Below are the first eight — the full 40 are waiting on the map.',
+    'stamps.h3':'How the quest works','stamps.demoLabel':'Featured · No. 01','stamps.demoCta':'Try this stamp',
+    'stamps.gridLabel':'First 8 of 40 Stamps','stamps.cta':'See all 40 stamps on the map',
+    'path.eyebrow':'The Learning Path','path.title':'One Path, Three Steps',
+    'path.sub':'The quest map gives momentum, the passport carries the collection, the season sets the rhythm — three jobs, one path.',
+    'path.s1':'01 · The Skeleton','path.t1':'Quest Map','path.d1':'Four chapters, themes unlocking one by one. Every cleared quest lights up a node — learning you can feel advancing.','path.go':'Open the map',
+    'path.s2':'02 · The Passport','path.t2':'Stamp Passport','path.d2':'40 themes = 40 stamps. Collect them all for a Guizhou Heritage Passport, with offline stamp points at scenic sites and shops.','path.go2':'Open the passport',
+    'path.s3':'03 · The Rhythm','path.t3':'Season Check-in','path.d3':'A 14-day season, 24 a year. Streaks unlock bonus points and mirror the two-week classroom packs.','path.go3':'See the season',
+    'path.rep':'Progress report: mastery, weekly trajectory, words to reinforce and auto suggestions — one printable page for schools and parents.','path.repGo':'View a sample report',
+  }
+};
+
+renderChrome(null);
+initPage();
+</script>
+</body>
+</html>
