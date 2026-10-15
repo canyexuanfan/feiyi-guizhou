@@ -3,6 +3,8 @@
    口径以原站首页为准：40 主题 = 40 枚章，132 词条
    所有页面共用，保证口径一致
 ========================================================= */
+/* 目录式路由：子目录页（如 /map/）需要 ../ 前缀访问根级资源 */
+const SUB = /\/(map|passport|checkin|cards|story|pattern|report|travel)(\/|$)/.test(location.pathname) ? '../' : '';
 const CHAPTERS = [
   { id:1, num:'I',   cn:'苗乡烟火', en:'Smoke & Rice',   img:'img/xijiang.jpg',
     desc:'从西江出发，先认识苗寨的日常：一顿饭、一场宴、一身盛装。' },
@@ -61,6 +63,9 @@ const THEMES = [
   { id:40, cn:'姊妹节',       en:'Sisters Festival',       ch:4, level:2, tag:'民俗', img:'img/sisters.jpg' },
 ];
 
+/* 子目录页统一加 ../ 前缀（数据里只写 img/xxx.jpg，运行时按所在目录解析） */
+[CHAPTERS, THEMES].forEach(arr => arr.forEach(t => { if (t.img) t.img = SUB + t.img; }));
+
 /* 渲染一枚章戳圆形 */
 function stampHTML(t, i, earned) {
   const lvl = '<i class="fa-solid fa-star"></i>'.repeat(t.level);
@@ -93,18 +98,18 @@ const I18N_COMMON = {
 };
 
 function renderChrome(activeNav) {
-  const map = { map:'map.html', passport:'passport.html', checkin:'checkin.html', cards:'cards.html',
-                story:'story.html', pattern:'pattern.html', report:'report.html', travel:'travel.html' };
+  const map = { map:'map/', passport:'passport/', checkin:'checkin/', cards:'cards/',
+                story:'story/', pattern:'pattern/', report:'report/', travel:'travel/' };
   const labelZh = I18N_COMMON.zh, labelEn = I18N_COMMON.en;
   const links = Object.entries(map).map(([k, href]) =>
-    `<a href="${href}" data-i18n="nav.${k}"${activeNav === k ? ' class="active-link"' : ''}>${labelZh['nav.' + k]}</a>`
+    `<a href="${SUB}${href}" data-i18n="nav.${k}"${activeNav === k ? ' class="active-link"' : ''}>${labelZh['nav.' + k]}</a>`
   ).join('');
   const linksM = Object.entries(map).map(([k, href]) =>
-    `<a href="${href}" data-i18n="nav.${k}"${activeNav === k ? ' class="active-link"' : ''}>${labelZh['nav.' + k]}</a>`
+    `<a href="${SUB}${href}" data-i18n="nav.${k}"${activeNav === k ? ' class="active-link"' : ''}>${labelZh['nav.' + k]}</a>`
   ).join('');
   document.getElementById('site-topbar').innerHTML = `
   <div class="topbar-inner">
-    <a href="index.html" class="brand" style="text-decoration:none">
+    <a href="${SUB || './'}" class="brand" style="text-decoration:none">
       <span class="brand-en">Rita</span>
       <span class="brand-cn">贵州志</span>
     </a>

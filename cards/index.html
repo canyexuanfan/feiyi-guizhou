@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/fa/all.min.css">
-<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="../assets/fa/all.min.css">
+<link rel="stylesheet" href="../assets/main.css">
 <style>
 .cards-sec{padding:72px 40px 110px;background:var(--paper)}
 .hint{
@@ -98,7 +98,7 @@
 </main>
 <footer class="footer" id="site-footer"></footer>
 
-<script src="assets/main.js"></script>
+<script src="../assets/main.js"></script>
 <script>
 window.PAGE_I18N = {
   zh: {
@@ -118,29 +118,29 @@ window.PAGE_I18N = {
 };
 
 const WORDS = [
-  { en:'batik', phon:'/bəˈtiːk/', cn:'n. 蜡染；蜡染布', tag:'非遗', img:'img/batik-cloth.jpg',
+  { en:'batik', phon:'/bəˈtiːk/', cn:'n. 蜡染；蜡染布', tag:'非遗', img:'../img/batik-cloth.jpg',
     spell:'b · a · t · i · k', sent:'The crack lines in batik are called "ice patterns".', sc:'蜡染上的裂纹被称作「冰纹」。' },
-  { en:'embroidery', phon:'/ɪmˈbrɔɪdəri/', cn:'n. 刺绣；绣品', tag:'非遗', img:'img/embroidery.jpg',
+  { en:'embroidery', phon:'/ɪmˈbrɔɪdəri/', cn:'n. 刺绣；绣品', tag:'非遗', img:'../img/embroidery.jpg',
     spell:'e · m · b · r · o · i · d · e · r · y', sent:'Miao embroidery records the butterfly mother legend.', sc:'苗绣记录着蝴蝶妈妈的传说。' },
-  { en:'drum tower', phon:'/drʌm ˈtaʊə(r)/', cn:'n. 鼓楼', tag:'非遗', img:'img/drumtower.jpg',
+  { en:'drum tower', phon:'/drʌm ˈtaʊə(r)/', cn:'n. 鼓楼', tag:'非遗', img:'../img/drumtower.jpg',
     spell:'d · r · u · m · t · o · w · e · r', sent:'The drum tower is built without a single nail.', sc:'鼓楼不用一颗钉子就能建成。' },
-  { en:'silver ornament', phon:'/ˈsɪlvə(r) ˈɔːnəmənt/', cn:'n. 银饰', tag:'非遗', img:'img/silver.jpg',
+  { en:'silver ornament', phon:'/ˈsɪlvə(r) ˈɔːnəmənt/', cn:'n. 银饰', tag:'非遗', img:'../img/silver.jpg',
     spell:'s · i · l · v · e · r', sent:'Her silver ornament chimes as she dances.', sc:'她跳舞时银饰叮当作响。' },
-  { en:'sour soup fish', phon:'/ˈsaʊə suːp fɪʃ/', cn:'n. 酸汤鱼', tag:'小吃', img:'img/soursoup.jpg',
+  { en:'sour soup fish', phon:'/ˈsaʊə suːp fɪʃ/', cn:'n. 酸汤鱼', tag:'小吃', img:'../img/soursoup.jpg',
     spell:'s · o · u · r · s · o · u · p', sent:'Sour soup fish is the taste of Guizhou.', sc:'酸汤鱼是贵州的味道。' },
-  { en:'long table feast', phon:'/lɒŋ ˈteɪbl fiːst/', cn:'n. 长桌宴', tag:'民俗', img:'img/longtable.jpg',
+  { en:'long table feast', phon:'/lɒŋ ˈteɪbl fiːst/', cn:'n. 长桌宴', tag:'民俗', img:'../img/longtable.jpg',
     spell:'l · o · n · g · t · a · b · l · e', sent:'A thousand guests share the long table feast.', sc:'上千位客人同吃一场长桌宴。' },
-  { en:'terraced fields', phon:'/ˈterəst fiːldz/', cn:'n. 梯田', tag:'景区', img:'img/ricefish.jpg',
+  { en:'terraced fields', phon:'/ˈterəst fiːldz/', cn:'n. 梯田', tag:'景区', img:'../img/ricefish.jpg',
     spell:'t · e · r · r · a · c · e · d', sent:'Rice-field fish swim among the terraced fields.', sc:'稻花鱼就游在梯田之间。' },
-  { en:'lusheng', phon:'/ˈluːʃʌŋ/', cn:'n. 芦笙', tag:'非遗', img:'img/lusheng.jpg',
+  { en:'lusheng', phon:'/ˈluːʃʌŋ/', cn:'n. 芦笙', tag:'非遗', img:'../img/lusheng.jpg',
     spell:'l · u · s · h · e · n · g', sent:'The lusheng leads the festival dance.', sc:'芦笙领起了节日的舞步。' },
-  { en:'oil tea', phon:'/ɔɪl tiː/', cn:'n. 油茶', tag:'小吃', img:'img/youcha.jpg',
+  { en:'oil tea', phon:'/ɔɪl tiː/', cn:'n. 油茶', tag:'小吃', img:'../img/youcha.jpg',
     spell:'o · i · l · t · e · a', sent:'Dong people drink oil tea every morning.', sc:'侗家人每天清早都要打油茶。' },
-  { en:'rice wine', phon:'/raɪs waɪn/', cn:'n. 米酒', tag:'小吃', img:'img/mijiu.jpg',
+  { en:'rice wine', phon:'/raɪs waɪn/', cn:'n. 米酒', tag:'小吃', img:'../img/mijiu.jpg',
     spell:'r · i · c · e · w · i · n · e', sent:'Rice wine toasts echo through the village.', sc:'敬米酒的歌声回荡在寨子里。' },
-  { en:'wind-rain bridge', phon:'/wɪnd reɪn brɪdʒ/', cn:'n. 风雨桥', tag:'景区', img:'img/drumtower-night.jpg',
+  { en:'wind-rain bridge', phon:'/wɪnd reɪn brɪdʒ/', cn:'n. 风雨桥', tag:'景区', img:'../img/drumtower-night.jpg',
     spell:'w · i · n · d · r · a · i · n', sent:'The wind-rain bridge shelters travelers from storms.', sc:'风雨桥为行人遮风挡雨。' },
-  { en:'sisters festival', phon:'/ˈsɪstəz ˈfestɪvl/', cn:'n. 姊妹节', tag:'民俗', img:'img/sisters.jpg',
+  { en:'sisters festival', phon:'/ˈsɪstəz ˈfestɪvl/', cn:'n. 姊妹节', tag:'民俗', img:'../img/sisters.jpg',
     spell:'s · i · s · t · e · r · s', sent:'Sisters festival is the sweetest day in Taijiang.', sc:'姊妹节是台江最甜蜜的节日。' },
 ];
 

@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond&family=Noto+Serif+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/fa/all.min.css">
-<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="../assets/fa/all.min.css">
+<link rel="stylesheet" href="../assets/main.css">
 <style>
 .page-head{padding:88px 40px 56px;background:var(--paper);border-bottom:1px solid var(--line)}
 .page-head .section-cn{margin-bottom:0}
@@ -89,7 +89,7 @@
 </main>
 <footer class="footer" id="site-footer"></footer>
 
-<script src="assets/main.js"></script>
+<script src="../assets/main.js"></script>
 <script>
 window.PAGE_I18N = {
   zh: {
@@ -115,7 +115,7 @@ function nodeCard(t, idx){
   const media = t.img
     ? `<div class="node-media"><span class="node-idx">No.${String(idx+1).padStart(2,'0')}</span><img src="${t.img}" alt="${t.cn}" loading="lazy"></div>`
     : `<div class="node-media pattern"><span class="node-idx">No.${String(idx+1).padStart(2,'0')}</span>${PATTERN_SVGS[(t.ch-1) % PATTERN_SVGS.length]}</div>`;
-  return `<a class="node" href="passport.html" title="${t.en}">
+  return `<a class="node" href="../passport/" title="${t.en}">
     ${media}
     <div class="node-body">
       <div class="node-cn">${t.cn}</div>

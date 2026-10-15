@@ -312,7 +312,7 @@
         <div class="hero-stat"><span class="hero-stat-n">1</span><span class="hero-stat-l" data-i18n="hero.stat4">Passport</span></div>
       </div>
       <div class="hero-cta">
-        <a href="map.html" class="seal-btn"><span data-i18n="hero.cta1">Begin the Quest</span></a>
+        <a href="map/" class="seal-btn"><span data-i18n="hero.cta1">Begin the Quest</span></a>
         <a href="#stamps" class="line-btn" data-i18n="hero.cta2">See the 40 stamps</a>
       </div>
     </div>
@@ -387,27 +387,27 @@
         <div class="p-icon"><img src="img/xijiang.jpg" alt="闯关地图"></div>
         <b data-i18n="path.t1">闯关地图</b><i>Quest Map</i>
         <p data-i18n="path.d1">四大章节、主题逐个解锁。每通一关点亮一个节点，给学习一个「推进感」。</p>
-        <a href="map.html" data-i18n="path.go">进入地图</a>
+        <a href="map/" data-i18n="path.go">进入地图</a>
       </div>
       <div class="path-card">
         <div class="p-step" data-i18n="path.s2">02 · 主载体 The Passport</div>
         <div class="p-icon"><img src="img/silver.jpg" alt="集章护照"></div>
         <b data-i18n="path.t2">集章护照</b><i>Stamp Passport</i>
         <p data-i18n="path.d2">40 主题 = 40 枚章，集齐即「贵州非遗护照」，可对接景区与门店的线下集章点。</p>
-        <a href="passport.html" data-i18n="path.go2">翻开护照</a>
+        <a href="passport/" data-i18n="path.go2">翻开护照</a>
       </div>
       <div class="path-card">
         <div class="p-step" data-i18n="path.s3">03 · 节奏 The Rhythm</div>
         <div class="p-icon"><img src="img/longtable.jpg" alt="赛季打卡"></div>
         <b data-i18n="path.t3">赛季打卡</b><i>Season Check-in</i>
         <p data-i18n="path.d3">14 天一赛季、24 期/年，连续打卡解锁阶梯积分，对齐进校双周课时包。</p>
-        <a href="checkin.html" data-i18n="path.go3">去看赛季</a>
+        <a href="checkin/" data-i18n="path.go3">去看赛季</a>
       </div>
     </div>
     <div class="path-report">
       <i class="fa-solid fa-chart-column"></i>
       <p data-i18n="path.rep">成效报告：掌握度、学习轨迹、待强化词与自动建议，一页可打印，面向学校与家长交付。</p>
-      <a href="report.html" data-i18n="path.repGo">查看示例报告</a>
+      <a href="report/" data-i18n="path.repGo">查看示例报告</a>
     </div>
   </div>
 </section>
@@ -449,14 +449,14 @@
         <div class="quest-demo-seal">XIJIANG · 黔东南</div>
         <div class="quest-demo-name">西江千户苗寨</div>
         <div class="quest-demo-en">Xijiang Qianhu Miao Village</div>
-        <a href="map.html" class="seal-btn"><span data-i18n="stamps.demoCta">Try this stamp</span></a>
+        <a href="map/" class="seal-btn"><span data-i18n="stamps.demoCta">Try this stamp</span></a>
       </div>
     </div>
 
     <div class="stamp-section-title" data-i18n="stamps.gridLabel">First 8 of 40 Stamps</div>
     <div class="stamp-grid" id="stamp-grid"></div>
     <div class="stamps-cta">
-      <a href="map.html" class="seal-btn"><span data-i18n="stamps.cta">See all 40 stamps on the map</span></a>
+      <a href="map/" class="seal-btn"><span data-i18n="stamps.cta">See all 40 stamps on the map</span></a>
     </div>
   </div>
 </section>
@@ -477,7 +477,7 @@ const NOTES = [
 const notesGrid = document.getElementById('notes-grid');
 NOTES.forEach(n => {
   const el = document.createElement('a');
-  el.className = 'note'; el.href = 'story.html';
+  el.className = 'note'; el.href = 'story/';
   el.innerHTML = `<img src="${n.img}" alt="${n.cn}">
     <span class="note-no">${n.no}</span>
     <div class="note-cap"><small>${n.en}</small><strong>${n.cn}</strong></div>`;
